@@ -16,7 +16,7 @@
         <!-- Main Content -->
         <main class="flex-1 flex">
             <!-- Left Panel - Inputs -->
-            <div class="w-1/2 p-6 overflow-y-auto border-r border-gray-200 bg-white">
+            <div class="w-1/3 p-6 overflow-y-auto border-r border-gray-200 bg-white">
                 <!-- Image Input Section -->
                 <div class="mb-8">
                     <h2 class="text-xl font-semibold mb-4">Product Image</h2>
@@ -76,23 +76,38 @@
                                 <span>Website URL</span>
                             </label>
                         </div>
-                        <textarea id="textInput" 
+                        <textarea id="textInput" name="text_input"
                                   placeholder="Enter product/company description" 
                                   class="mb-4 p-2 w-full border rounded h-32 resize-none"></textarea>
+                        <button onclick="generateResponse()" 
+                                class="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 text-lg font-semibold w-full">
+                            Generate Analysis
+                        </button>
                     </div>
                 </div>
 
                 <!-- Generate Button -->
                 <div class="text-center">
-                    <button onclick="generateResponse()" 
-                            class="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 text-lg font-semibold">
-                        Generate Analysis
-                    </button>
                 </div>
             </div>
 
-            <!-- Right Panel - Output -->
-            <div class="w-1/2 p-6 bg-gray-50 overflow-y-auto">
+            <!-- Middle Panel - Segment List -->
+            <div class="w-1/3 p-6 overflow-y-auto border-r border-gray-200 bg-gray-50">
+                <div id="segment-list" class="hidden">
+                    <h2 class="text-xl font-bold mb-4">Customer Segments</h2>
+                    <div id="segments-only" class="space-y-4"></div>
+                </div>
+                <div id="segment-placeholder" class="text-center text-gray-500 p-12">
+                    <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    <p>Segment list will appear here</p>
+                </div>
+            </div>
+
+            <!-- Right Panel - Detailed Analysis -->
+            <div class="w-1/3 p-6 bg-gray-50 overflow-y-auto">
                 <div id="result" class="hidden">
                     <h2 class="text-xl font-bold mb-4">Analysis Result</h2>
                     <div id="description" class="p-6 bg-white rounded-lg shadow-sm"></div>
@@ -134,11 +149,30 @@
             const resultDiv = document.getElementById('result');
             const descriptionDiv = document.getElementById('description');
             const placeholder = document.getElementById('placeholder');
+            const segmentListDiv = document.getElementById('segment-list');
+            const segmentsOnlyDiv = document.getElementById('segments-only');
+            const segmentPlaceholder = document.getElementById('segment-placeholder');
             
             // Split the segments text into individual segments
             const segmentBlocks = segments.split('\n\n').filter(block => block.trim());
             
-            // Create HTML for each segment
+            // Create HTML for segment list (middle column)
+            const segmentListHTML = segmentBlocks.map(block => {
+                const lines = block.split('\n');
+                const title = lines[0].replace('[', '').replace(']', '');
+                const revenue = lines[1];
+                
+                return `
+                    <div class="bg-white rounded-lg shadow-sm p-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-semibold text-blue-600">${title}</h3>
+                            <div class="text-green-600 text-sm font-medium">${revenue}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Create HTML for detailed analysis (right column)
             const segmentsHTML = segmentBlocks.map(block => {
                 const lines = block.split('\n');
                 const title = lines[0].replace('[', '').replace(']', '');
@@ -164,10 +198,16 @@
                 `;
             }).join('');
             
+            // Update segment list column
+            segmentListDiv.classList.remove('hidden');
+            segmentPlaceholder.classList.add('hidden');
+            segmentsOnlyDiv.innerHTML = segmentListHTML;
+            
+            // Update detailed analysis column
             resultDiv.classList.remove('hidden');
             placeholder.classList.add('hidden');
             descriptionDiv.innerHTML = `
-                <h2 class="text-xl font-bold mb-6">Top Revenue-Generating Segments</h2>
+                <h2 class="text-xl font-bold mb-6">Detailed Analysis</h2>
                 ${segmentsHTML}
             `;
         }
@@ -244,17 +284,20 @@
             const formData = new FormData();
             const textInput = document.getElementById('textInput').value.trim();
             const textInputType = document.querySelector('input[name="textInputType"]:checked').value;
+            const imageFile = document.getElementById('imageFile');
+            const imageUrl = document.getElementById('imageUrl').value.trim();
             let hasInput = false;
 
-            if (currentImage) {
-                if (currentImage.type === 'file') {
-                    formData.append('file', currentImage.data);
-                } else {
-                    formData.append('image_url', currentImage.data);
-                }
+            // Handle image input
+            if (imageFile.files[0]) {
+                formData.append('file', imageFile.files[0]);
+                hasInput = true;
+            } else if (imageUrl) {
+                formData.append('image_url', imageUrl);
                 hasInput = true;
             }
 
+            // Handle text input
             if (textInput) {
                 formData.append('text_input', textInput);
                 formData.append('text_input_type', textInputType);
@@ -273,8 +316,12 @@
                     method: 'POST',
                     body: formData
                 });
-                const data = await response.json();
                 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
                 if (data.error) {
                     throw new Error(data.error);
                 }
@@ -283,7 +330,7 @@
                 showResult(data.segments);
             } catch (error) {
                 hideLoading();
-                showResult(`Error: ${error.message}`);
+                alert(`Error: ${error.message}`);
                 console.error('Error:', error);
             }
         }
