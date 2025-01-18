@@ -94,7 +94,7 @@
             <!-- Right Panel - Output -->
             <div class="w-1/2 p-6 bg-gray-50 overflow-y-auto">
                 <div id="result" class="hidden">
-                    <h2 class="text-xl font-semibold mb-4">Analysis Result</h2>
+                    <h2 class="text-xl font-bold mb-4">Analysis Result</h2>
                     <div id="description" class="p-6 bg-white rounded-lg shadow-sm"></div>
                 </div>
 
@@ -140,11 +140,26 @@
             
             // Create HTML for each segment
             const segmentsHTML = segmentBlocks.map(block => {
-                const [title, ...description] = block.split('\n');
+                const lines = block.split('\n');
+                const title = lines[0].replace('[', '').replace(']', '');
+                const revenue = lines[1];
+                const metrics = lines.slice(2, 5);
+                const description = lines.slice(5).join('<br>');
+                
                 return `
-                    <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-                        <h3 class="font-bold text-lg text-blue-600 mb-2">${title.replace('[', '').replace(']', '')}</h3>
-                        <p class="text-gray-700">${description.join('<br>')}</p>
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-blue-600">${title}</h3>
+                            <div class="text-green-600 font-bold">${revenue}</div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-4">
+                            ${metrics.map(metric => `
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <p class="text-sm text-gray-600">${metric}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <p class="text-gray-700 mt-4">${description}</p>
                     </div>
                 `;
             }).join('');
@@ -152,7 +167,7 @@
             resultDiv.classList.remove('hidden');
             placeholder.classList.add('hidden');
             descriptionDiv.innerHTML = `
-                <h2 class="text-xl font-bold mb-4">Top Customer Segments</h2>
+                <h2 class="text-xl font-bold mb-6">Top Revenue-Generating Segments</h2>
                 ${segmentsHTML}
             `;
         }

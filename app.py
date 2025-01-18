@@ -1,7 +1,8 @@
 import os
 from flask import Flask, request, render_template, jsonify
 from PIL import Image
-import google.generativeai as genai
+from google import genai
+from google.genai.types import Tool, GenerateContentConfig, GoogleSearch
 from dotenv import load_dotenv
 import requests
 from io import BytesIO
@@ -10,38 +11,47 @@ from io import BytesIO
 load_dotenv()
 
 # Configure Google Gemini API
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-model = genai.GenerativeModel('gemini-2.0-flash-exp')
+client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+model_id = "gemini-2.0-flash-exp"
+
+# Configure Google Search tool
+google_search_tool = Tool(
+    google_search=GoogleSearch()
+)
 
 app = Flask(__name__)
 
 def get_description(image_data=None, text_input=None):
     try:
         # First call to get detailed analysis
-        detailed_prompt = """Analyze the provided product information and identify the most likely customer segments that would be interested in this product. 
+        detailed_prompt = """Analyze the provided product information and identify the customer segments with the highest revenue potential. 
         
 Follow these steps in your analysis:
 1. Product Understanding:
-   - Analyze the visual elements and features from the image
-   - Consider the product description and company information
+   - Analyze the visual elements, features, and quality level from the image/description
    - Identify key product attributes and value propositions
+   - Estimate the likely price point or price range for this product
 
-2. Market Analysis:
-   - Evaluate the price point or perceived value
-   - Consider the product category and use cases
-   - Identify the product's unique selling points
+2. Market Size Analysis:
+   - Evaluate the total addressable market (TAM) for this product category
+   - Consider market trends and growth potential
+   - Identify key purchasing factors and frequency
 
-3. Customer Segmentation:
-   - List the primary customer segments (demographic, psychographic, behavioral)
-   - Explain why each segment would be interested
-   - Rank segments by likelihood of purchase
+3. Customer Segmentation with Revenue Potential:
+   - For each potential customer segment, estimate:
+     * Average purchase value
+     * Purchase frequency (per year)
+     * Segment size (approximate number of customers)
+     * Total potential annual revenue (purchase value × frequency × size)
+   - Calculate the percentage contribution to total revenue for each segment
+   - Only retain segments that fall in the top 80% of cumulative revenue
 
-4. Recommendations:
-   - Suggest marketing channels for reaching these segments
-   - Identify potential cross-selling opportunities
-   - Note any seasonal or regional considerations
+4. Market Penetration Factors:
+   - Assess ease of reaching each segment
+   - Consider customer acquisition costs
+   - Evaluate competitive pressure in each segment
 
-Provide a detailed analysis following these steps."""
+Provide a detailed analysis following these steps, with specific focus on revenue calculations."""
 
         content = [detailed_prompt]
         
@@ -59,33 +69,74 @@ Provide a detailed analysis following these steps."""
         if not content[1:]:  # If no image or text input provided
             return {"error": "Please provide either an image or text description"}
 
-        # Get detailed analysis
-        detailed_response = model.generate_content(content)
-        if not detailed_response.text:
+        # Get detailed analysis with grounding
+        detailed_response = client.models.generate_content(
+            model=model_id,
+            contents=content,
+            config=GenerateContentConfig(
+                tools=[google_search_tool],
+                response_modalities=["TEXT"],
+            )
+        )
+        
+        if not detailed_response.candidates:
             return {"error": "Failed to generate analysis"}
 
-        # Second call to extract and summarize segments
-        summary_prompt = """Based on the following detailed analysis, extract the top 3-5 customer segments. 
+        detailed_text = detailed_response.candidates[0].content.parts[0].text
+
+        # Second call to extract and summarize top revenue segments
+        summary_prompt = """Based on the detailed analysis, extract only the customer segments that contribute to the top 80% of total revenue potential.
+
 For each segment, provide:
-1. A clear segment name/title
-2. A concise two-line description explaining why this segment would be interested in the product.
+1. Segment Name/Title
+2. Revenue Metrics:
+   - Average purchase value
+   - Annual purchase frequency
+   - Estimated segment size
+   - Total annual revenue potential
+3. Brief description of why this segment is valuable
 
 Format the response as:
 [Segment Name]
-[Two-line description]
+Revenue Potential: $X million/year
+- Avg Purchase: $X
+- Frequency: X purchases/year
+- Segment Size: X customers
+[Two-line description of value proposition for this segment]
 
 [Next Segment Name]
-[Two-line description]
+...etc.
 
-etc.
+Order segments by revenue potential (highest to lowest). Only include segments that together make up 80% of total revenue.
 
 Here's the analysis:
-""" + detailed_response.text
+""" + detailed_text
 
-        summary_response = model.generate_content([summary_prompt])
+        # Get summary with grounding
+        summary_response = client.models.generate_content(
+            model=model_id,
+            contents=[summary_prompt],
+            config=GenerateContentConfig(
+                tools=[google_search_tool],
+                response_modalities=["TEXT"],
+            )
+        )
         
+        if not summary_response.candidates:
+            return {"error": "Failed to generate summary"}
+
+        summary_text = summary_response.candidates[0].content.parts[0].text
+        
+        # Get grounding metadata for debugging (optional)
+        grounding_data = None
+        try:
+            grounding_data = summary_response.candidates[0].grounding_metadata.search_entry_point.rendered_content
+        except:
+            pass
+
         return {
-            "segments": summary_response.text
+            "segments": summary_text,
+            "grounding_data": grounding_data
         }
 
     except Exception as e:
