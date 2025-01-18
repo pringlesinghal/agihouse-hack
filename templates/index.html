@@ -6,102 +6,171 @@
     <title>Product Analysis App</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen p-8">
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Product & Company Analysis</h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Image Input Section -->
-            <div class="space-y-6">
-                <h2 class="text-xl font-semibold mb-4">Product Image</h2>
-                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
-                    <h3 class="text-lg font-medium mb-4">Upload Image</h3>
-                    <input type="file" id="imageFile" accept="image/*" class="mb-4 p-2 w-full border rounded">
-                    <button onclick="analyzeWithCurrentInputs('file')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
-                        Analyze with Image File
-                    </button>
-                </div>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-sm p-4">
+            <h1 class="text-2xl font-bold text-center text-gray-800">Product & Company Analysis</h1>
+        </header>
 
-                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
-                    <h3 class="text-lg font-medium mb-4">Image URL</h3>
-                    <input type="text" id="imageUrl" placeholder="Enter image URL" class="mb-4 p-2 w-full border rounded">
-                    <button onclick="analyzeWithCurrentInputs('url')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
-                        Analyze with Image URL
-                    </button>
-                </div>
-            </div>
+        <!-- Main Content -->
+        <main class="flex-1 flex">
+            <!-- Left Panel - Inputs -->
+            <div class="w-1/2 p-6 overflow-y-auto border-r border-gray-200 bg-white">
+                <!-- Image Input Section -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold mb-4">Product Image</h2>
+                    <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg">
+                        <div class="flex space-x-6 mb-4">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="imageInputType" value="file" checked 
+                                       onchange="handleImageInputTypeChange()" class="text-blue-500">
+                                <span>File Upload</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="imageInputType" value="url" 
+                                       onchange="handleImageInputTypeChange()" class="text-blue-500">
+                                <span>Image URL</span>
+                            </label>
+                        </div>
+                        
+                        <div id="fileUploadSection" class="mb-4">
+                            <input type="file" id="imageFile" accept="image/*" class="w-full border rounded p-2">
+                            <button onclick="handleImageUpload()" id="uploadButton" 
+                                    class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
+                                Upload Image
+                            </button>
+                        </div>
 
-            <!-- Text Input Section -->
-            <div class="space-y-6">
-                <h2 class="text-xl font-semibold mb-4">Company/Product Information</h2>
-                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
-                    <h3 class="text-lg font-medium mb-4">Input Type</h3>
-                    <div class="flex space-x-6 mb-4">
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="textInputType" value="text" checked 
-                                   onchange="handleTextInputTypeChange()" class="text-blue-500">
-                            <span>Direct Text</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="textInputType" value="url" 
-                                   onchange="handleTextInputTypeChange()" class="text-blue-500">
-                            <span>Website URL</span>
-                        </label>
+                        <div id="urlInputSection" class="hidden mb-4">
+                            <input type="text" id="imageUrl" placeholder="Enter image URL" class="w-full border rounded p-2">
+                            <button onclick="handleImageUpload()" id="urlButton"
+                                    class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
+                                Add Image URL
+                            </button>
+                        </div>
+
+                        <div id="imagePreview" class="hidden mt-4">
+                            <p class="text-sm text-gray-600 mb-2">Selected Image:</p>
+                            <img id="previewImg" class="max-w-full h-auto rounded border" src="" alt="Preview">
+                            <button onclick="clearImage()" class="mt-2 text-red-500 text-sm hover:text-red-700">
+                                Remove Image
+                            </button>
+                        </div>
                     </div>
-                    <textarea id="textInput" 
-                              placeholder="Enter product/company description" 
-                              class="mb-4 p-2 w-full border rounded h-32 resize-none"></textarea>
-                    <button onclick="analyzeWithCurrentInputs('text')" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 w-full">
-                        Analyze with Text
+                </div>
+
+                <!-- Text Input Section -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold mb-4">Company/Product Information</h2>
+                    <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg">
+                        <div class="flex space-x-6 mb-4">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="textInputType" value="text" checked 
+                                       onchange="handleTextInputTypeChange()" class="text-blue-500">
+                                <span>Direct Text</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="textInputType" value="url" 
+                                       onchange="handleTextInputTypeChange()" class="text-blue-500">
+                                <span>Website URL</span>
+                            </label>
+                        </div>
+                        <textarea id="textInput" 
+                                  placeholder="Enter product/company description" 
+                                  class="mb-4 p-2 w-full border rounded h-32 resize-none"></textarea>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="text-center">
+                    <button onclick="generateResponse()" 
+                            class="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 text-lg font-semibold">
+                        Generate Analysis
                     </button>
                 </div>
             </div>
-        </div>
 
-        <div id="result" class="hidden mt-8">
-            <h2 class="text-xl font-semibold mb-4">Analysis Result</h2>
-            <div id="imagePreview" class="mb-4 hidden">
-                <img id="previewImg" class="max-w-full h-auto rounded" src="" alt="Preview">
-            </div>
-            <div id="description" class="p-6 bg-gray-50 rounded-lg"></div>
-        </div>
+            <!-- Right Panel - Output -->
+            <div class="w-1/2 p-6 bg-gray-50 overflow-y-auto">
+                <div id="result" class="hidden">
+                    <h2 class="text-xl font-semibold mb-4">Analysis Result</h2>
+                    <div id="description" class="p-6 bg-white rounded-lg shadow-sm"></div>
+                </div>
 
-        <div id="loading" class="hidden mt-8">
-            <div class="flex items-center justify-center">
-                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                <p class="ml-2 text-gray-600">Analyzing...</p>
+                <div id="loading" class="hidden">
+                    <div class="flex items-center justify-center p-12">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                        <p class="ml-2 text-gray-600">Analyzing...</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder when no analysis -->
+                <div id="placeholder" class="text-center text-gray-500 p-12">
+                    <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <p>Your analysis results will appear here</p>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <script>
+        let currentImage = null;
+
         function showLoading() {
             document.getElementById('loading').classList.remove('hidden');
             document.getElementById('result').classList.add('hidden');
+            document.getElementById('placeholder').classList.add('hidden');
         }
 
         function hideLoading() {
             document.getElementById('loading').classList.add('hidden');
         }
 
-        function showResult(description, showImage = false) {
+        function showResult(segments) {
             const resultDiv = document.getElementById('result');
             const descriptionDiv = document.getElementById('description');
-            const imagePreview = document.getElementById('imagePreview');
+            const placeholder = document.getElementById('placeholder');
+            
+            // Split the segments text into individual segments
+            const segmentBlocks = segments.split('\n\n').filter(block => block.trim());
+            
+            // Create HTML for each segment
+            const segmentsHTML = segmentBlocks.map(block => {
+                const [title, ...description] = block.split('\n');
+                return `
+                    <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+                        <h3 class="font-bold text-lg text-blue-600 mb-2">${title.replace('[', '').replace(']', '')}</h3>
+                        <p class="text-gray-700">${description.join('<br>')}</p>
+                    </div>
+                `;
+            }).join('');
             
             resultDiv.classList.remove('hidden');
-            descriptionDiv.textContent = description;
-            
-            if (showImage) {
-                imagePreview.classList.remove('hidden');
-            } else {
-                imagePreview.classList.add('hidden');
-            }
+            placeholder.classList.add('hidden');
+            descriptionDiv.innerHTML = `
+                <h2 class="text-xl font-bold mb-4">Top Customer Segments</h2>
+                ${segmentsHTML}
+            `;
         }
 
-        function previewImage(src) {
-            const previewImg = document.getElementById('previewImg');
-            previewImg.src = src;
+        function handleImageInputTypeChange() {
+            const fileSection = document.getElementById('fileUploadSection');
+            const urlSection = document.getElementById('urlInputSection');
+            const selectedType = document.querySelector('input[name="imageInputType"]:checked').value;
+            
+            if (selectedType === 'url') {
+                fileSection.classList.add('hidden');
+                urlSection.classList.remove('hidden');
+            } else {
+                fileSection.classList.remove('hidden');
+                urlSection.classList.add('hidden');
+            }
+            
+            clearImage();
         }
 
         function handleTextInputTypeChange() {
@@ -118,37 +187,59 @@
                 textInput.classList.add('h-32');
             }
             
-            // Clear the input when switching types
             textInput.value = '';
         }
 
-        async function analyzeWithCurrentInputs(trigger) {
+        function clearImage() {
+            document.getElementById('imageFile').value = '';
+            document.getElementById('imageUrl').value = '';
+            document.getElementById('imagePreview').classList.add('hidden');
+            currentImage = null;
+        }
+
+        async function handleImageUpload() {
+            const imageInputType = document.querySelector('input[name="imageInputType"]:checked').value;
+            const preview = document.getElementById('imagePreview');
+            const previewImg = document.getElementById('previewImg');
+
+            if (imageInputType === 'file') {
+                const fileInput = document.getElementById('imageFile');
+                if (fileInput.files[0]) {
+                    currentImage = {
+                        type: 'file',
+                        data: fileInput.files[0]
+                    };
+                    previewImg.src = URL.createObjectURL(fileInput.files[0]);
+                    preview.classList.remove('hidden');
+                }
+            } else {
+                const imageUrl = document.getElementById('imageUrl').value.trim();
+                if (imageUrl) {
+                    currentImage = {
+                        type: 'url',
+                        data: imageUrl
+                    };
+                    previewImg.src = imageUrl;
+                    preview.classList.remove('hidden');
+                }
+            }
+        }
+
+        async function generateResponse() {
             const formData = new FormData();
             const textInput = document.getElementById('textInput').value.trim();
             const textInputType = document.querySelector('input[name="textInputType"]:checked').value;
             let hasInput = false;
-            let showImagePreview = false;
 
-            // Handle image input based on trigger
-            if (trigger === 'file') {
-                const fileInput = document.getElementById('imageFile');
-                if (fileInput.files[0]) {
-                    formData.append('file', fileInput.files[0]);
-                    previewImage(URL.createObjectURL(fileInput.files[0]));
-                    hasInput = true;
-                    showImagePreview = true;
+            if (currentImage) {
+                if (currentImage.type === 'file') {
+                    formData.append('file', currentImage.data);
+                } else {
+                    formData.append('image_url', currentImage.data);
                 }
-            } else if (trigger === 'url') {
-                const imageUrl = document.getElementById('imageUrl').value.trim();
-                if (imageUrl) {
-                    formData.append('image_url', imageUrl);
-                    previewImage(imageUrl);
-                    hasInput = true;
-                    showImagePreview = true;
-                }
+                hasInput = true;
             }
 
-            // Add text input if present
             if (textInput) {
                 formData.append('text_input', textInput);
                 formData.append('text_input_type', textInputType);
@@ -174,7 +265,7 @@
                 }
                 
                 hideLoading();
-                showResult(data.description, showImagePreview);
+                showResult(data.segments);
             } catch (error) {
                 hideLoading();
                 showResult(`Error: ${error.message}`);
