@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Analysis App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Product & Company Analysis</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Image Input Section -->
+            <div class="space-y-6">
+                <h2 class="text-xl font-semibold mb-4">Product Image</h2>
+                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                    <h3 class="text-lg font-medium mb-4">Upload Image</h3>
+                    <input type="file" id="imageFile" accept="image/*" class="mb-4 p-2 w-full border rounded">
+                    <button onclick="analyzeWithCurrentInputs('file')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
+                        Analyze with Image File
+                    </button>
+                </div>
+
+                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                    <h3 class="text-lg font-medium mb-4">Image URL</h3>
+                    <input type="text" id="imageUrl" placeholder="Enter image URL" class="mb-4 p-2 w-full border rounded">
+                    <button onclick="analyzeWithCurrentInputs('url')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
+                        Analyze with Image URL
+                    </button>
+                </div>
+            </div>
+
+            <!-- Text Input Section -->
+            <div class="space-y-6">
+                <h2 class="text-xl font-semibold mb-4">Company/Product Information</h2>
+                <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                    <h3 class="text-lg font-medium mb-4">Input Type</h3>
+                    <div class="flex space-x-6 mb-4">
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="textInputType" value="text" checked 
+                                   onchange="handleTextInputTypeChange()" class="text-blue-500">
+                            <span>Direct Text</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="textInputType" value="url" 
+                                   onchange="handleTextInputTypeChange()" class="text-blue-500">
+                            <span>Website URL</span>
+                        </label>
+                    </div>
+                    <textarea id="textInput" 
+                              placeholder="Enter product/company description" 
+                              class="mb-4 p-2 w-full border rounded h-32 resize-none"></textarea>
+                    <button onclick="analyzeWithCurrentInputs('text')" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 w-full">
+                        Analyze with Text
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result" class="hidden mt-8">
+            <h2 class="text-xl font-semibold mb-4">Analysis Result</h2>
+            <div id="imagePreview" class="mb-4 hidden">
+                <img id="previewImg" class="max-w-full h-auto rounded" src="" alt="Preview">
+            </div>
+            <div id="description" class="p-6 bg-gray-50 rounded-lg"></div>
+        </div>
+
+        <div id="loading" class="hidden mt-8">
+            <div class="flex items-center justify-center">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                <p class="ml-2 text-gray-600">Analyzing...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.add('hidden');
+        }
+
+        function showResult(description, showImage = false) {
+            const resultDiv = document.getElementById('result');
+            const descriptionDiv = document.getElementById('description');
+            const imagePreview = document.getElementById('imagePreview');
+            
+            resultDiv.classList.remove('hidden');
+            descriptionDiv.textContent = description;
+            
+            if (showImage) {
+                imagePreview.classList.remove('hidden');
+            } else {
+                imagePreview.classList.add('hidden');
+            }
+        }
+
+        function previewImage(src) {
+            const previewImg = document.getElementById('previewImg');
+            previewImg.src = src;
+        }
+
+        function handleTextInputTypeChange() {
+            const textInput = document.getElementById('textInput');
+            const selectedType = document.querySelector('input[name="textInputType"]:checked').value;
+            
+            if (selectedType === 'url') {
+                textInput.placeholder = 'Enter website URL (e.g., https://company.com/about)';
+                textInput.classList.remove('h-32');
+                textInput.classList.add('h-12');
+            } else {
+                textInput.placeholder = 'Enter product/company description';
+                textInput.classList.remove('h-12');
+                textInput.classList.add('h-32');
+            }
+            
+            // Clear the input when switching types
+            textInput.value = '';
+        }
+
+        async function analyzeWithCurrentInputs(trigger) {
+            const formData = new FormData();
+            const textInput = document.getElementById('textInput').value.trim();
+            const textInputType = document.querySelector('input[name="textInputType"]:checked').value;
+            let hasInput = false;
+            let showImagePreview = false;
+
+            // Handle image input based on trigger
+            if (trigger === 'file') {
+                const fileInput = document.getElementById('imageFile');
+                if (fileInput.files[0]) {
+                    formData.append('file', fileInput.files[0]);
+                    previewImage(URL.createObjectURL(fileInput.files[0]));
+                    hasInput = true;
+                    showImagePreview = true;
+                }
+            } else if (trigger === 'url') {
+                const imageUrl = document.getElementById('imageUrl').value.trim();
+                if (imageUrl) {
+                    formData.append('image_url', imageUrl);
+                    previewImage(imageUrl);
+                    hasInput = true;
+                    showImagePreview = true;
+                }
+            }
+
+            // Add text input if present
+            if (textInput) {
+                formData.append('text_input', textInput);
+                formData.append('text_input_type', textInputType);
+                hasInput = true;
+            }
+
+            if (!hasInput) {
+                alert('Please provide either an image or text input');
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                hideLoading();
+                showResult(data.description, showImagePreview);
+            } catch (error) {
+                hideLoading();
+                showResult(`Error: ${error.message}`);
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
