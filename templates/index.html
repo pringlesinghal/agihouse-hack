@@ -174,12 +174,24 @@
                 
                 // Add persona content if available
                 if (data.personas && data.personas[segmentName]) {
+                    const personaData = data.personas[segmentName];
                     const personaContent = document.createElement('div');
                     personaContent.className = 'mt-4 p-4 bg-blue-50 rounded border-l-4 border-blue-500';
+                    
+                    // Add persona profile
                     personaContent.innerHTML = `
                         <div class="font-semibold text-blue-800 mb-2">Persona Profile</div>
-                        <div class="whitespace-pre-wrap text-sm">${data.personas[segmentName]}</div>
+                        <div class="whitespace-pre-wrap text-sm mb-4">${personaData.persona}</div>
                     `;
+
+                    // Add video prompt if available
+                    if (personaData.video_prompt) {
+                        personaContent.innerHTML += `
+                            <div class="font-semibold text-blue-800 mt-4 mb-2">Video Advertisement Prompt</div>
+                            <div class="whitespace-pre-wrap text-sm bg-white p-3 rounded">${personaData.video_prompt}</div>
+                        `;
+                    }
+                    
                     segmentContent.appendChild(personaContent);
                 }
                 

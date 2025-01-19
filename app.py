@@ -84,7 +84,11 @@ def analyze_image():
             return jsonify({'error': error})
 
         # Step 3: Generate personas for each segment
-        personas, error = generate_personas(segments_result['segments'], client)
+        personas, error = generate_personas(
+            segments=segments_result['segments'],
+            product_details={'description': detailed_analysis},
+            client=client
+        )
         
         if error:
             return jsonify({'error': error})
