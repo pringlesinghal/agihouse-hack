@@ -1,25 +1,406 @@
 timestamp,query_hash,segment_name,segment_key,detailed_analysis,revenue_analysis,persona,value_proposition
-2025-01-18T18:59:41.111754,c7725845,"Families with Children - Parents seeking durable, affordable, and comfortable clothing",7ab6c510,"
-Revenue Potential: $8.9 billion/year (29.9 million customers * $100 * 3)
-- Avg Purchase: $100 (similar to a moderate family clothing haul)
-- Frequency: 3 purchases/year (seasonal updates and kids' growth)
-- Segment Size: 29.9 million customers (25% of 119.6 million total customers)
-",,"{'persona': 'Okay, here is a persona based on the provided customer segment, formatted as a second-person narrative for use as an LLM prompt:\n\n""You are Sarah Miller, a 34-year-old elementary school teacher. You live in a suburban neighborhood with your husband, Mark, and your two children, 7-year-old Emily and 4-year-old Tom. Your household income is around $85,000 a year, and you\'re very conscious about how you spend money, especially with the rising costs of raising a family. You prioritize saving for your children\'s future education and managing your monthly budget carefully. Your days are often busy, juggling work, school pick-ups, homework, and family activities. You often find yourself running from one task to the next.\n\nYou value family time, practicality, and making responsible choices. You believe in hard work and providing a good life for your children. Your primary motivation is to ensure your kids are happy, healthy, and well-provided for. One of your biggest challenges is finding clothes that are both durable enough to handle your kids’ active lifestyle and affordable enough for your budget. You dislike constantly replacing clothes due to wear and tear or outgrowing them quickly. You make decisions with careful consideration, often researching and comparing options before purchasing, but you also need to be efficient and not spend too much time making these decisions. You are comfortable with basic technology, using your smartphone for online shopping and research, but you\'re not always actively seeking the latest tech innovations.\n\nWhen shopping, you often start by looking online for reviews and comparisons, but you are likely to also look at clothes in person. You are primarily driven by value, carefully evaluating price against the expected quality and lifespan. You prefer brands that are known for durability and don\'t always need to be the most fashionable. You appreciate brands that offer good deals and discounts. You tend to stick with brands you know and trust, but you are open to exploring alternatives if they are recommended by someone you know, or they look to be of a similar quality. Marketing that focuses on value, durability, and family needs is most likely to grab your attention.\n\nWhen it comes to clothing, you need items that are robust, easy to care for, and comfortable for your children. They absolutely must be able to withstand the wear and tear of playground adventures and daily messes. You expect the clothes to be of good quality, able to handle frequent washing without fading or falling apart. You are seeking the best price for the quality you expect, and you don\'t expect to pay designer prices for playwear. Your experience is improved by a straightforward return policy, reliable customer service, and a quick online purchasing experience, along with convenient delivery or in-store pickup.""\n', 'video_prompt': 'Okay, here\'s an 8-second video advertisement prompt designed to resonate with families with children, specifically targeting parents like Sarah Miller:\n\n**Video Advertisement Prompt: Uniqlo - Durable Family Clothing**\n\n**1. Scene Sequence (8 seconds total):**\n\n*   **Opening (2 seconds):**\n    *   **Visual:** Quick shot of a slightly chaotic but happy family scene. Children are briefly seen laughing, running and playing. Focus is on the children\'s active movement.\n    *   **Audio:** Upbeat, playful background music starts softly. Voiceover begins, ""Tired of clothes that can\'t keep up?""\n*   **Middle (4 seconds):**\n    *   **Visual:** Quick cuts showcasing Uniqlo clothing in action. First the durability of the fabric with a close-up of a child\'s pant leg while sliding on a playground, then a shot of an easy to clean spill being wiped off, then a child looking comfortable while running and playing. Finally show the Uniqlo logo appearing over the scene.\n    *   **Audio:** Voiceover: ""Uniqlo clothing is made to last, from the playground to playtime, comfortable and easy to care for."" Music continues with a slight increase in energy.\n*   **Closing (2 seconds):**\n    *   **Visual:**  Final shot of the happy family, now clean, and wearing Uniqlo clothing, smiling at each other, followed by the Uniqlo logo with the website address.\n    *   **Audio:** Voiceover: ""Shop durable, affordable, family basics. Visit Uniqlo.com"" Upbeat music ends on a positive note.\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Focus on real-life family moments, not overly posed or staged. The kids are engaged in fun, active play. Use bright, natural lighting to create a warm, inviting atmosphere, but not overly flashy or overly stylized.\n    *   **Colors:** Use a palette of primary colors (red, blue, yellow) with some neutral tones (gray, white). This adds a pop of color that is kid-friendly and relatable, while the neutrals keep the look from being too overwhelming.\n    *   **Mood:**  The overall mood should be energetic, positive, and relatable. The video should evoke a sense of practicality and durability with an undercurrent of warmth and happiness.\n*   **Audio:**\n    *   **Music Style:** Upbeat, acoustic-based background music. Something that is positive, but not too fast or distracting. Avoid overly produced or electronic music.\n    *   **Voice Tone:** Warm, friendly, and trustworthy voice. The voice should sound like a fellow parent speaking, not overly salesy or corporate.\n*   **Product Integration:**\n    *   The Uniqlo clothing should be seamlessly integrated into everyday family activities. Showcase the clothes being worn while the children are actively playing, highlighting the durability and comfort as they do. Avoid static product shots. Ensure clothes look well made and fit the kids and the parents.\n    *   Focus on the practical aspects of the clothing, such as easy-care features. Show how easy it is to wipe a spill or that the clothing is robust for active kids.\n\n**Key Message:**\n\nThe core message is that Uniqlo offers durable, affordable, and comfortable clothing that can keep up with the demands of family life. The video should convey the message that Uniqlo understands the needs of busy families, and its products provide a practical solution.\n'}",
-2025-01-18T18:59:41.111754,c7725845,"Comfort and Practicality Seekers - All ages, prioritizing functionality and ease of care",8a061589,"
-Revenue Potential: $8.6 billion/year (35.88 million customers * $60 * 4)
-- Avg Purchase: $60 (purchases of essential items)
-- Frequency: 4 purchases/year (replacing well-used staples)
-- Segment Size: 35.88 million customers (30% of 119.6 million total customers)
-",,"{'persona': 'Okay, here\'s a persona crafted as a second-person narrative, designed to capture the essence of the ""Comfort and Practicality Seekers"" segment, suitable for use as an LLM prompt:\n\n""You are Sarah Miller, a 58-year-old elementary school teacher. You live in a quiet, suburban neighborhood in a modest two-story house that you\'ve called home for over 20 years. Your income is stable, falling into the middle-income bracket, and you prioritize financial security and comfort over extravagant spending. You value experiences with your family, which includes your adult children and grandchildren. Your daily routine is fairly structured: waking up early to prepare for school, teaching, spending time with your spouse in the evenings, and often catching up on some reading. You believe in hard work, practicality, and creating a comfortable environment for yourself and your loved ones.\n\nYour core values center on family, responsibility, and simplicity. You are motivated by the desire to live a comfortable and stress-free life, and your aspirations are centered around enjoying your retirement and maintaining your health and independence. A key pain point for you is navigating complex products or services that take up too much time or effort. You tend to be very careful in your decision-making, preferring to thoroughly research purchases before committing. You\'re not an early adopter of new technology, but you use your smartphone, tablet, and the internet regularly for communication and research.\n\nWhen it comes to shopping, you’re not impulsive. You’ll spend time reading reviews and comparing products. Functionality and ease of use are critical decision factors for you, and you are drawn to items that are durable, low-maintenance, and serve their purpose well. You prefer to buy quality products that will last, but are not willing to overpay for trends or luxury brands. You are not particularly brand loyal, but you will stick with brands that have consistently served you well. You\'re receptive to marketing that emphasizes value, durability, and practicality, but you will tune out high-pressure or complex sales tactics.\n\nYou expect products to be well-made, easy to use, and require minimal upkeep. You look for features that make your daily tasks easier and more comfortable, from easy-to-clean fabrics to simple, intuitive controls. You do expect that the price of a product reflects its quality and that it is fairly priced. You appreciate good customer service and are drawn to companies that are easy to contact if something goes wrong. You will choose to purchase from businesses that have demonstrated that they respect their customer’s time and money. Your goal is to find practical, dependable products that provide good value for your money, enhance your daily life, and create a comfortable home environment.""\n', 'video_prompt': 'Okay, here\'s an 8-second video advertisement prompt targeting the ""Comfort and Practicality Seekers"" segment:\n\n**Video Prompt:**\n\n**1. Scene Sequence:**\n\n*   **Opening (2s):**\n    *   **Visual:** A close-up shot of hands gently folding a soft, neutral-colored Uniqlo t-shirt or sweater. Sunlight streams in from a window. The setting is a clean, uncluttered bedroom or living room.\n    *   **Audio:** Calm, acoustic guitar music starts. A warm, gentle female voiceover begins, ""Comfort, simplified...""\n*   **Middle (4s):**\n    *   **Visual:** Quick cuts showcasing a diverse range of people of different ages (but primarily older adults) comfortably going about their day: walking their dog, reading a book, having coffee with a friend. All are wearing Uniqlo basics - comfortable pants, simple tops, a light jacket. The colors are soft, natural and consistent with the Uniqlo palette (blues, greys, beiges).  The shots are natural and unposed.\n    *   **Audio:**  The same voiceover continues, ""Durable fabrics, easy care, designed for your everyday.  It\'s clothing that fits your life."" The guitar music continues at the same level.\n*   **Closing (2s):**\n    *   **Visual:** A wide shot of a person smiling gently at the camera wearing Uniqlo clothing. The Uniqlo logo subtly appears in a corner of the screen.\n     *   **Audio:**  Voiceover, now slightly faster, ""Uniqlo. Practical comfort. Visit our website, or stop by your local store."" Music fades slightly.\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Imagery:**  Focus on natural, everyday scenes. No high-energy or overly stylized shots. Showcase the clothing as a functional, comfortable part of daily life.  Emphasize the quality of the fabric with close-up shots.\n    *   **Colors:** Soft, neutral tones such as beige, light grey, light blue and pale green, with some pops of color but nothing too vibrant.  The overall feel is muted and comfortable.\n    *   **Mood:** Calm, peaceful, reliable, and authentic. The ad should feel like a comfortable and familiar setting.\n*   **Audio:**\n    *   **Music:**  Soft, acoustic guitar music. Simple and unobtrusive. Avoid anything loud, trendy, or electronic.\n    *   **Voice Tone:** Warm, friendly, trustworthy, and calm. The tone should feel conversational, like someone you trust. The pacing should be slow, with a focus on clarity.\n*   **Product Integration:**\n    *   The clothing should be shown as a means to an end. The focus is not just on the product itself, but the functionality and comfort that it brings to the user\'s life. The clothes are not the focus, but a way to live life more comfortably.  The clothes are shown being worn in various everyday life scenarios.\n\n**Key Takeaways for this Prompt:**\n\n*   **Focus on Comfort and Practicality:** The entire ad centers around the core value proposition that resonates with this segment.\n*   **Relatable Imagery:** The focus on everyday moments is key to demonstrating how Uniqlo fits into the lives of this customer segment.\n*   **Understated Style:** The visuals and audio should be simple and natural. This segment is not drawn to flashy, over-the-top advertising.\n*   **Simple Call to Action:** Clear and direct call to action, keeping with the values of the target audience who value clarity.\n\nThis prompt aims to create a concise and impactful ad that speaks directly to the needs and values of the ""Comfort and Practicality Seekers"" segment, making them feel understood and valued by the brand.\n'}",
-2025-01-18T18:59:41.111754,c7725845,"Students and Young Adults - 18-24 years old, budget-conscious but stylish",8b5739a3,"
-Revenue Potential: $5.9 billion/year (23.92 million customers * $50 * 5)
-- Avg Purchase: $50 (individual essential items, often in sales)
-- Frequency: 5 purchases/year (frequent need for basics and trend driven purchases)
-- Segment Size: 23.92 million customers (20% of 119.6 million total customers)
-",,"{'persona': 'Okay, here\'s a persona crafted for the student and young adult segment, presented as a second-person narrative for use as an LLM prompt:\n\n""You are Alex, a 21-year-old college student, studying graphic design at a state university. You’re working part-time as a barista, earning around $1,000 per month, which mostly goes towards rent, tuition, groceries, and occasionally, some fun. You live in a shared apartment with two roommates near campus, and your daily routine is packed with classes, study sessions, work shifts, and hanging out with friends.\n\nYou\'re a practical idealist, valuing creativity, authenticity, and social connection. You’re motivated by a desire to build a fulfilling career and contribute meaningfully to society, but you also want to enjoy the present. Your biggest challenges revolve around balancing your studies, work, and social life while trying to stay within your budget. You tend to make decisions quickly but thoughtfully, often doing some quick research before committing to a purchase. You’re a digital native and highly comfortable with technology and rely on your phone for most things.\n\nWhen you’re looking to buy something, you rely heavily on online reviews, recommendations from your peers, and social media influencers for initial research. Key factors for you include affordability, style, functionality, and sustainability. You are definitely price-sensitive, always looking for deals and discounts but will spend more for something high-quality that will last. You tend to gravitate towards brands that are transparent, socially responsible, and that you see as representing your values. You are open to marketing but are particularly responsive to social media ads and promotions, especially from brands you follow and trust.\n\nWhen it comes to products, you need them to be practical and reliable. You expect a good balance between price and quality and are willing to spend a little extra for extra features if they add value. You value durability and want items that will last, since you are not in a position to replace items frequently. You also expect decent customer service and are turned off by companies with bad or complicated return policies.""\n', 'video_prompt': 'Okay, here\'s an 8-second video ad prompt tailored for the student and young adult segment, focusing on Uniqlo\'s value proposition:\n\n**Video Ad Prompt**\n\n**Target Audience:** Students and Young Adults (18-24), budget-conscious but stylish\n\n**Overall Theme:**  ""Style That Lasts, Without Breaking the Bank""\n\n**1. Scene Sequence (8 seconds total):**\n\n*   **Opening (2s):**\n    *   **Visual:** Fast cuts of diverse young adults (students, artists) in different campus/urban settings - a library, coffee shop, park - all wearing various Uniqlo basics, full bodies, quick transitions between them. Focus on movement and activity.\n    *   **Audio:** Upbeat, trendy, but slightly mellow background music starts. A voiceover begins, casual tone: ""College life...""\n\n*   **Middle (4s):**\n    *   **Visual:** Focus shifts to close-ups of product details: a Uniqlo t-shirt being stretched and then returning to its shape, showcasing the quality and durability. Then a quick shot of a student packing the same shirt in a suitcase, highlighting versatility. The color palette is vibrant but grounded.\n    *   **Audio:** The upbeat music continues, no voice over. Sound of zippers, cloth moving, fabric textures are amplified.\n\n*   **Closing (2s):**\n    *   **Visual:** Quick transition to a young adult confidently looking at the camera, wearing a simple but stylish Uniqlo outfit. Screen shows Uniqlo\'s logo and a small text box ""Shop now"" or ""Discover Uniqlo Basics"" or ""Affordable style"".\n    *    **Audio:** Music peaks slightly. Voiceover returns: ""...made easy with Uniqlo.""\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Dynamic, active, relatable visuals of diverse young adults in everyday situations. Focus on movement, energy, and authenticity.\n    *   **Colors:** Vibrant but not overwhelming palette, incorporate Uniqlo\'s core neutral colors (white, black, gray, navy) with pops of modern colors such as sage green, terracotta, or dusty rose.\n    *   **Mood:** Energetic, confident, practical, relatable, authentic, positive.\n\n*   **Audio:**\n    *   **Music Style:** Upbeat, trendy, indie pop or lofi hip-hop beat with a mellow vibe to it. Something that is popular with this age demographic.\n    *   **Voice Tone:** Casual, relatable, genuine, and friendly. Not overly polished, but clear and concise.\n\n*   **Product Integration:**\n    *   Showcase the durability and versatility of the product. Focus on simple items, such as tees, jackets and pants.\n    *   Subtly feature Uniqlo\'s minimalist aesthetic, as well as the quality and fit.\n    *   Highlight the ""basics"" approach, so viewers see the potential of mixing and matching clothing.\n\n**Concise Video Prompt:**\n\n""**Open (2s):** Quick cuts of diverse young adults in campus/city, Uniqlo basics. VO: \'College life...\' **Middle (4s):** Close-ups: shirt stretching, versatile packing, vibrant colors, amplified texture sounds. **Close (2s):** Confident shot, Uniqlo logo, ""Shop now."" VO: \'...made easy with Uniqlo.\' Upbeat trendy music. Vibrant, authentic visuals.""\n'}",
-2025-01-18T18:59:41.111754,c7725845,"Urban Professionals - 25-45 years old, valuing quality and minimalist style",a13e2df5,"
-Revenue Potential: $5 billion/year (17.94 million customers * $70 * 4)
-- Avg Purchase: $70 (a mix of professional and casual wear)
-- Frequency: 4 purchases/year (seasonal wardrobe updates)
-- Segment Size: 17.94 million customers (15% of 119.6 million total customers)
-",,"{'persona': 'Okay, here\'s a persona crafted as a second-person narrative, designed for use as an LLM prompt:\n\n""You are Anya Sharma, a 32-year-old Marketing Manager at a tech company. You earn a comfortable six-figure salary and prioritize saving for the future while enjoying your current lifestyle. Your daily routine involves waking up early for a workout, a full day at the office, and often an evening spent catching up with friends or exploring your city’s cultural scene. You live in a modern, one-bedroom apartment in a vibrant downtown neighborhood.\n\nYou value authenticity, efficiency, and understated elegance. You are motivated by personal growth, career advancement, and meaningful experiences. Your main challenges involve balancing your demanding work life with your personal life and finding products that align with your minimalist aesthetic without sacrificing quality. When making decisions, you take a logical and analytical approach, spending time researching options before committing. You are an early adopter of technology and appreciate brands that demonstrate innovation and convenience.\n\nBefore making a purchase, you thoroughly research products online, reading reviews and comparing specifications. You favor quality over quantity, preferring to invest in fewer, well-made items. While you are not overly price-sensitive, you always seek good value. You appreciate brands known for quality, transparency, and strong ethics. You\'re not easily swayed by fleeting trends but value targeted marketing that shows how a product will benefit your specific needs and lifestyle.\n\nWhen it comes to products, you expect clean designs, functional features, and durable materials. You are willing to pay a premium for high-quality items that are built to last, as long as the value is clear. You expect seamless customer service and hassle-free purchasing experiences. You prefer products that integrate well with your existing technology and help you streamline your life. Your preference is for a brand that aligns with your core values of minimalist living, ethical sourcing, and quality craftsmanship.""\n', 'video_prompt': 'Okay, here\'s an 8-second video ad prompt targeting urban professionals, keeping it concise and impactful:\n\n**Video Prompt:**\n\n**Scene Sequence (8 seconds total):**\n\n*   **(0-2 seconds) Opening: ""The City Hustle""**\n    *   **Visual:** Quick cuts of a stylish, modern urban setting: A person walking confidently down a city street, catching a train, quickly typing on a laptop in a bright, minimalist office.\n    *   **Audio:** Upbeat, but not overly energetic, minimalist electronic music begins.  A voiceover, calm and clear, begins, ""Your day is packed...""\n\n*   **(2-6 seconds) Middle: ""Effortless Style and Comfort""**\n    *   **Visual:** Focus shifts to a person, (similar to Anya) wearing Uniqlo clothing in different scenarios:  A quick zoom in on the quality of the fabric, the person seamlessly transitioning from a workday to a social outing in the same outfit, a shot of a comfortable sweater. Focus on the versatility and clean look.\n    *   **Audio:** Music remains. Voiceover: ""...You need clothes that keep up. Uniqlo\'s minimalist designs, crafted with quality for maximum comfort.""\n\n*   **(6-8 seconds) Closing: ""Upgrade Your Basics""**\n     *   **Visual:** A full shot of the person, looking confident, and a screen shows Uniqlo\'s logo and a website address/QR code, and the clothes being shown briefly in a small image.\n    *  **Audio:** Music fades slightly. Voiceover: ""Upgrade your basics. Shop Uniqlo today.""\n\n**Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Clean lines, modern architecture, active people in everyday urban settings, close-ups showcasing fabric quality, shots of clothing that can transition from work to social.\n    *   **Colors:** Neutral tones, like greys, blues, white, with occasional pops of muted earth tones. Modern, clean, and professional.\n    *   **Mood:** Confident, stylish, effortless, functional, and sophisticated. The ad needs to resonate with a professional urban setting.\n\n*   **Audio:**\n    *   **Music:** Minimalist electronic, low-key, that creates an upbeat but not overwhelming tone, and aligns with the fast pace of an urban professional.\n    *   **Voice Tone:** Calm, clear, confident, and professional. No shouting or overly enthusiastic tone. The voice should be relatable to the demographic.\n\n*   **Product Integration:**\n    *   **Showcase Benefit:** Instead of focusing on specific items, the video should highlight how the clothing simplifies the daily life of an urban professional: Comfort, quality, and versatility. The benefit is that the clothing transitions from work to social outings without sacrificing style.\n    *   **Visuals:** Show someone in different scenarios, showcasing Uniqlo\'s versatile and minimalist style. Close-ups on fabric quality that reinforce high value.\n\n**Concise and Impactful Messaging:**\n\n*   **Focus:** Prioritize versatility, quality, and minimalist design.\n*   **Tone:** Reflect a busy, professional, but comfortable lifestyle.\n*   **Call to Action:** Clear and concise, encourages the viewer to take immediate action.\n\nThis prompt aims to quickly capture the attention of urban professionals by showcasing how Uniqlo\'s clothing can seamlessly integrate into their busy lives, offering quality, style, and value.\n'}",
+2025-01-18T20:00:10.534704,7f337e3d,Affluent Eco-Conscious Women - 35-55,fabd319c,"
+Revenue Potential: $30 million/year ($100 avg purchase * 2 purchases/year * 150,000 customers)
+- Avg Purchase: $100 (premium serum market, justifiable for unique ingredients and bioluminescence)
+- Frequency: 2 purchases/year (consistent with replenishment needs for a daily serum)
+- Segment Size: 150,000 customers (conservative estimate of affluent women within the eco-conscious market, market penetration of 0.08% of total US women aged 35-55).
+","<style>
+.container {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-family: Google Sans, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+}
+.chip {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 16px;
+  min-width: 14px;
+  padding: 5px 16px;
+  text-align: center;
+  user-select: none;
+  margin: 0 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel {
+  overflow: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  margin-right: -12px;
+}
+.headline {
+  display: flex;
+  margin-right: 4px;
+}
+.gradient-container {
+  position: relative;
+}
+.gradient {
+  position: absolute;
+  transform: translate(3px, -9px);
+  height: 36px;
+  width: 9px;
+}
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #fafafa;
+    box-shadow: 0 0 0 1px #0000000f;
+  }
+  .headline-label {
+    color: #1f1f1f;
+  }
+  .chip {
+    background-color: #ffffff;
+    border-color: #d2d2d2;
+    color: #5e5e5e;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #f2f2f2;
+  }
+  .chip:focus {
+    background-color: #f2f2f2;
+  }
+  .chip:active {
+    background-color: #d8d8d8;
+    border-color: #b6b6b6;
+  }
+  .logo-dark {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 0 1px #ffffff26;
+  }
+  .headline-label {
+    color: #fff;
+  }
+  .chip {
+    background-color: #2c2c2c;
+    border-color: #3c4043;
+    color: #fff;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #353536;
+  }
+  .chip:focus {
+    background-color: #353536;
+  }
+  .chip:active {
+    background-color: #464849;
+    border-color: #53575b;
+  }
+  .logo-light {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);
+  }
+}
+</style>
+<div class=""container"">
+  <div class=""headline"">
+    <svg class=""logo-light"" width=""18"" height=""18"" viewBox=""9 9 35 35"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z"" fill=""#4285F4""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z"" fill=""#34A853""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z"" fill=""#FBBC05""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z"" fill=""#EA4335""/>
+    </svg>
+    <svg class=""logo-dark"" width=""18"" height=""18"" viewBox=""0 0 48 48"" xmlns=""http://www.w3.org/2000/svg"">
+      <circle cx=""24"" cy=""23"" fill=""#FFF"" r=""22""/>
+      <path d=""M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z"" fill=""#4285F4""/>
+      <path d=""M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z"" fill=""#34A853""/>
+      <path d=""M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z"" fill=""#FBBC05""/>
+      <path d=""M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z"" fill=""#EA4335""/>
+    </svg>
+    <div class=""gradient-container""><div class=""gradient""></div></div>
+  </div>
+  <div class=""carousel"">
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYso5kO1sSzlVMQRX0lZJ9Wa_LNcXOCvAzO2UB1stv77_5r5wcWwottu38UAufxft37-ZnPwmnAQA7el0uQ2S2hLhwJ08F0btGaQhCvi3N0mhzwmdd-FhFCy1QakqE-NIVzhxjiwkcWl1wFrn0BJU3umNDiEe3fuGa5Ckfkpf0ANGzXZ9cLvV0Z4PilQxh0DYd5U-06Vmaw6L_J-95RyWu2WgQUueA=="">size of anti-aging skincare market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYtO8ZivKVPzzeGPX-p1qiYuJIqdclGuoHfct74kJCsrP-rly7DPROtTbynkh45vm6XBDDsA10X3_4LmNBg6vXmI7dmgPrg801YEBNNzVwGEP48Ido3SwA5qLiyo-IZNp02TUSxC7imviujXcPkR-bgmyk16CVMS09iiz-xeMtQ5KBrsDRbiCkzqadbO5IHOQtNYSh0dQWy3g0rLwaFxBKpibFCeeETsIw=="">size of eco-conscious consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvbJTeyXYwIJHRSsARGq_GItwYzQ2nkLMjle4SUbVrACGxQxukCPpS_NVi24ovo9IRmLxm6_NsBG2luXTubCs781FTIiZJmt3hxC7KoWzfutx0CzHGp0aF2Bx9DU7bVuQdYGGRBsp989mZXyjV_qs3Hew0ADN7uhYJ1w-tw1jQFjQqcnbjzBvlsj4_IPDkgEnlVEv_dUb4r3mBe4XDhuAc7ioW55o33PXX2HMQ="">size of affluent women demographic in USA</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYv1CrCctJjVdhAmLXY1lxn2qgjUgJP_5WvahUK4Olr4v9IWC8HZfKUQhpUrDZT32XYTg1IzM_d44sQ6FzZto1Ey7p93dr7rtnMXd-7kxNPmsoNKrCrliDvD2QRGKVso_pbDtvcOq2giyQCzG77gMJSYFzrDv8gPbdoEzxE7KyIljeFp4KkswerUAljMr6VeYjcGl2VsQp6SGzEasQSFwCQ="">size of vegan consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYu7c8hpNbqbXrOBLEbSBvewibnW-akl-wAB_X9Arh5v9ugf-B-GOAeZgUnZDLl9J40oPgKC5ko-e4sKo7D_PFCbBHcNDDGU7vcFNGJqjH03Nn2Z-jOtOoDHKoYwbwubIs2QCpWb4VaU0nfoy3bo0xFpxXKpIujJ-mRJVxOXXYEVdnvdRX2HyopCMp4GTisJGF4k19Z9hG3vpCaH4Bl3Z-ewmPlfHvAbJiT0jwDLO7U="">average annual spending on skincare products</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvLfyDNemrf3DSBSOpEcqI3-SREuNl74l72tTLqHE7q2ZPj3xBfd7Fidl4XwgStyHnD17grVsKv4val35ZCIvuo-adKs-AKg9Nb131JoW0NpsojuePNLkZUOe3T3_D3PkHYPAdw2tw9qoATVP7QpziOoW1TeH6r0v9uqeBefGrDAwR2XuFwHkOFBIBOaQiZLF3ON6rGlU1BO719pKWiFi0xEvTe-V6l6naSxAy3"">average annual spending on skincare by age</a>
+  </div>
+</div>
+","{'persona': 'Okay, here is a persona crafted as a second-person narrative suitable for use as an LLM prompt:\n\n""You are Eleanor Vance, a 42-year-old Marketing Director at a sustainable tech startup. You earn an annual income of $250,000, and your financial priorities include saving for your children’s education and investing in socially responsible companies. You live in a modern, eco-friendly condo in downtown Seattle with your spouse and two children. Your daily routine involves a mix of demanding work meetings, volunteering at the local community garden, and spending quality time with your family, often engaging in outdoor activities like hiking or cycling.\n\nYour core values revolve around sustainability, authenticity, and family. You are deeply motivated by the desire to leave a positive impact on the world and to be a role model for your children. Your main pain points include the feeling that many companies greenwash their products and the challenge of finding truly sustainable and high-quality items that fit your sophisticated lifestyle. You are a thoughtful and analytical decision-maker, who prefers to thoroughly research products before buying. You are comfortable with technology, using it to research, shop, and connect with like-minded communities.\n\nWhen shopping, you dedicate considerable time to researching brands and product origins, and you are heavily influenced by reviews and third-party certifications. You prioritize quality, ethical sourcing, and environmental impact over price but expect fair pricing that reflects the value of the product. You are drawn to brands that are transparent about their supply chains and dedicated to sustainability. You are open to engaging with marketing if it is authentic, educational, and not overly promotional.\n\nYou expect products to be durable, ethically made, and environmentally friendly. Must-have features include eco-friendly materials, reusable or recyclable packaging, and a proven commitment to sustainability. You appreciate high-quality craftsmanship and aesthetics that align with your minimalist-chic lifestyle. You are willing to invest in premium products that offer both high quality and sustainability, but expect excellent customer service and a seamless purchasing experience. You seek products that represent quality, social responsibility, and a positive contribution to the world.”\n', 'video_prompt': 'Okay, here\'s an 8-second video advertisement prompt for LumiGlow Serum, targeting affluent, eco-conscious women aged 35-55:\n\n**Video Prompt:**\n\n**1. Scene Sequence (8 seconds total):**\n\n*   **Opening (2s):**\n    *   **Visual:** A close-up shot of a dew-kissed leaf, subtly glowing from within, transitioning into a shot of the LumiGlow serum bottle. The bottle is sleek, modern with an earth-tone label.\n    *   **Audio:** Gentle, ethereal music begins, like a soft, nature-inspired soundscape. A calm, sophisticated female voice-over starts: ""Discover nature\'s radiance...""\n*   **Middle (4s):**\n    *   **Visual:** The serum is shown being applied to clean skin, with a subtle shimmering effect. Follow this with a quick close-up on a woman’s glowing face (she’s in the target demographic, 35-55, with a natural but polished look) as she smiles. Focus on her radiant skin.\n    *   **Audio:** The music builds slightly. Voice-over continues: ""...with LumiGlow Serum. Rejuvenate naturally.""\n*   **Closing (2s):**\n    *   **Visual:** The LumiGlow bottle is displayed prominently against a backdrop of softly blurred natural elements, like plants and natural lighting. The bottle has a sleek design with an emphasis on eco-friendly packaging. A website address appears briefly.\n    *   **Audio:** The music softens. Voice-over concludes: ""Sunburst Botanicals. Shop responsibly.""\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Nature-inspired elements (leaves, subtle bioluminescence, natural light), the serum bottle with its clean, modern design, and a woman with radiant, healthy skin.\n    *   **Colors:** Earthy tones (greens, browns, soft creams) with subtle hints of gold or amber to represent radiance. Clean, minimalist look with natural lighting.\n    *   **Mood:** Calm, sophisticated, natural, and luxurious.\n*   **Audio:**\n    *   **Music Style:** Ethereal, nature-inspired, and calming instrumental music with a subtle touch of sophistication. Think of a modern spa-like sound.\n    *   **Voice Tone:** Calm, confident, and trustworthy female voice, with a sophisticated and warm tone.\n*   **Product Integration:**\n    *   The serum’s bioluminescent properties are subtly shown through the slight shimmer effect on the skin and the glowing leaf at the beginning.\n    *   The focus is on the benefit: radiant and rejuvenated skin, rather than just the features of the serum itself.\n    *   The sustainable aspect is subtly implied through the earthy tones and natural visual elements. The call to action ""Shop Responsibly"" also reinforces the brand\'s values.\n\nThis prompt aims to quickly capture the attention of the target audience by highlighting the natural and rejuvenating aspects of the serum, aligning with their values of sustainability and high quality. The subtle luxury elements will also appeal to their desire for premium products.\n'}",
+2025-01-18T20:00:10.534704,7f337e3d,Vegan Skincare Enthusiasts - 25-40,012e8444,"
+Revenue Potential: $24 million/year ($100 avg purchase * 2 purchases/year * 120,000 customers)
+- Avg Purchase: $100 (aligns with high-end vegan skincare pricing)
+- Frequency: 2 purchases/year (reflective of consistent usage and replenishment for skincare routines)
+- Segment Size: 120,000 customers (represents a smaller but dedicated portion of the vegan consumer base focused on skincare).
+","<style>
+.container {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-family: Google Sans, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+}
+.chip {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 16px;
+  min-width: 14px;
+  padding: 5px 16px;
+  text-align: center;
+  user-select: none;
+  margin: 0 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel {
+  overflow: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  margin-right: -12px;
+}
+.headline {
+  display: flex;
+  margin-right: 4px;
+}
+.gradient-container {
+  position: relative;
+}
+.gradient {
+  position: absolute;
+  transform: translate(3px, -9px);
+  height: 36px;
+  width: 9px;
+}
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #fafafa;
+    box-shadow: 0 0 0 1px #0000000f;
+  }
+  .headline-label {
+    color: #1f1f1f;
+  }
+  .chip {
+    background-color: #ffffff;
+    border-color: #d2d2d2;
+    color: #5e5e5e;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #f2f2f2;
+  }
+  .chip:focus {
+    background-color: #f2f2f2;
+  }
+  .chip:active {
+    background-color: #d8d8d8;
+    border-color: #b6b6b6;
+  }
+  .logo-dark {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 0 1px #ffffff26;
+  }
+  .headline-label {
+    color: #fff;
+  }
+  .chip {
+    background-color: #2c2c2c;
+    border-color: #3c4043;
+    color: #fff;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #353536;
+  }
+  .chip:focus {
+    background-color: #353536;
+  }
+  .chip:active {
+    background-color: #464849;
+    border-color: #53575b;
+  }
+  .logo-light {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);
+  }
+}
+</style>
+<div class=""container"">
+  <div class=""headline"">
+    <svg class=""logo-light"" width=""18"" height=""18"" viewBox=""9 9 35 35"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z"" fill=""#4285F4""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z"" fill=""#34A853""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z"" fill=""#FBBC05""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z"" fill=""#EA4335""/>
+    </svg>
+    <svg class=""logo-dark"" width=""18"" height=""18"" viewBox=""0 0 48 48"" xmlns=""http://www.w3.org/2000/svg"">
+      <circle cx=""24"" cy=""23"" fill=""#FFF"" r=""22""/>
+      <path d=""M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z"" fill=""#4285F4""/>
+      <path d=""M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z"" fill=""#34A853""/>
+      <path d=""M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z"" fill=""#FBBC05""/>
+      <path d=""M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z"" fill=""#EA4335""/>
+    </svg>
+    <div class=""gradient-container""><div class=""gradient""></div></div>
+  </div>
+  <div class=""carousel"">
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYso5kO1sSzlVMQRX0lZJ9Wa_LNcXOCvAzO2UB1stv77_5r5wcWwottu38UAufxft37-ZnPwmnAQA7el0uQ2S2hLhwJ08F0btGaQhCvi3N0mhzwmdd-FhFCy1QakqE-NIVzhxjiwkcWl1wFrn0BJU3umNDiEe3fuGa5Ckfkpf0ANGzXZ9cLvV0Z4PilQxh0DYd5U-06Vmaw6L_J-95RyWu2WgQUueA=="">size of anti-aging skincare market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYtO8ZivKVPzzeGPX-p1qiYuJIqdclGuoHfct74kJCsrP-rly7DPROtTbynkh45vm6XBDDsA10X3_4LmNBg6vXmI7dmgPrg801YEBNNzVwGEP48Ido3SwA5qLiyo-IZNp02TUSxC7imviujXcPkR-bgmyk16CVMS09iiz-xeMtQ5KBrsDRbiCkzqadbO5IHOQtNYSh0dQWy3g0rLwaFxBKpibFCeeETsIw=="">size of eco-conscious consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvbJTeyXYwIJHRSsARGq_GItwYzQ2nkLMjle4SUbVrACGxQxukCPpS_NVi24ovo9IRmLxm6_NsBG2luXTubCs781FTIiZJmt3hxC7KoWzfutx0CzHGp0aF2Bx9DU7bVuQdYGGRBsp989mZXyjV_qs3Hew0ADN7uhYJ1w-tw1jQFjQqcnbjzBvlsj4_IPDkgEnlVEv_dUb4r3mBe4XDhuAc7ioW55o33PXX2HMQ="">size of affluent women demographic in USA</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYv1CrCctJjVdhAmLXY1lxn2qgjUgJP_5WvahUK4Olr4v9IWC8HZfKUQhpUrDZT32XYTg1IzM_d44sQ6FzZto1Ey7p93dr7rtnMXd-7kxNPmsoNKrCrliDvD2QRGKVso_pbDtvcOq2giyQCzG77gMJSYFzrDv8gPbdoEzxE7KyIljeFp4KkswerUAljMr6VeYjcGl2VsQp6SGzEasQSFwCQ="">size of vegan consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYu7c8hpNbqbXrOBLEbSBvewibnW-akl-wAB_X9Arh5v9ugf-B-GOAeZgUnZDLl9J40oPgKC5ko-e4sKo7D_PFCbBHcNDDGU7vcFNGJqjH03Nn2Z-jOtOoDHKoYwbwubIs2QCpWb4VaU0nfoy3bo0xFpxXKpIujJ-mRJVxOXXYEVdnvdRX2HyopCMp4GTisJGF4k19Z9hG3vpCaH4Bl3Z-ewmPlfHvAbJiT0jwDLO7U="">average annual spending on skincare products</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvLfyDNemrf3DSBSOpEcqI3-SREuNl74l72tTLqHE7q2ZPj3xBfd7Fidl4XwgStyHnD17grVsKv4val35ZCIvuo-adKs-AKg9Nb131JoW0NpsojuePNLkZUOe3T3_D3PkHYPAdw2tw9qoATVP7QpziOoW1TeH6r0v9uqeBefGrDAwR2XuFwHkOFBIBOaQiZLF3ON6rGlU1BO719pKWiFi0xEvTe-V6l6naSxAy3"">average annual spending on skincare by age</a>
+  </div>
+</div>
+","{'persona': 'Okay, here\'s a persona for a Vegan Skincare Enthusiast, formatted as a second-person narrative for use as an LLM prompt:\n\n""You are Anya Sharma, a 32-year-old marketing manager working remotely for a sustainable goods company. You earn an above-average income, roughly $85,000 a year, and while you enjoy occasional luxuries, you prioritize ethical spending, contributing to your local animal shelter, and saving for a down payment on a small house with a garden. You live in a trendy, eco-conscious neighborhood in Denver, Colorado, in a 2 bedroom apartment with your rescue cat, Luna. Your typical day involves a morning yoga session, a full workday from your home office, a long walk after work, and trying out new vegan recipes in the evening.\n\nYour core values revolve around compassion, environmentalism, and authenticity. You are deeply motivated by your desire to live a life that aligns with your ethical principles, and you aspire to be a more conscious consumer. You are frustrated by the lack of transparency in the beauty industry and constantly research brands and product ingredients to be sure you aren\'t supporting anything that violates your beliefs. You are a fairly analytical person, you tend to carefully weigh options and do a lot of research before committing to a purchase, usually after reading multiple customer reviews. You’re a tech-savvy millennial, actively using social media for both connection and research, and often follow vegan beauty influencers.\n\nWhen it comes to shopping, you meticulously research products, pouring over ingredient lists and verifying brand certifications. Key factors in your buying decisions include cruelty-free status, all-natural ingredients, environmentally friendly packaging, and positive reviews from people with similar skin types. You are not particularly price-sensitive when it comes to skincare, but you demand value and expect products to be high-quality and effective. You have a strong affinity for smaller, independent brands that are transparent about their values and production process. You\'re very likely to respond well to marketing that focuses on the ethical aspect of the product, as well as clear, concise information about ingredients and manufacturing practices. You’re often willing to sign up for a company’s newsletter to stay in the know about new products, and you do appreciate personalized email marketing.\n\nYou expect skincare products to be highly effective, formulated with clean, plant-based ingredients that don\'t irritate your somewhat sensitive skin. You expect high-quality formulations, free from artificial additives, parabens, and sulfates. You believe that you should be paying for results, and feel that a high-price point should be backed by top tier ingredients and efficacy. Your service expectations are high; you appreciate companies that are accessible and offer excellent customer service, as well as generous return policies. You expect companies to respond to questions quickly and offer detailed and clear information about their production process, ingredients, and any applicable certifications.”\n', 'video_prompt': 'Okay, here\'s an 8-second video advertisement prompt targeting vegan skincare enthusiasts (25-40), focusing on Sunburst Botanicals\' LumiGlow Serum:\n\n**Video Advertisement Prompt:**\n\n**1. Scene Sequence (8 seconds total):**\n\n*   **Opening (0-2 seconds):**\n    *   **Visual:** Close-up shot of a hand gently touching a vibrant green leaf, dew drops glistening on the surface. Soft, natural lighting, with a color palette of earthy tones and deep greens.\n    *   **Audio:** Gentle, ambient nature sounds with a soft, melodic chime.\n*   **Middle (2-6 seconds):**\n    *   **Visual:** Transition to a shot of the LumiGlow Serum bottle, sleek and modern, placed next to the same green leaf. A single drop of serum is shown glowing subtly as it is applied to skin, then a woman with radiant, clear skin smiles softly. \n     *   **Audio:** Upbeat, but calming, acoustic music track begins. A female voice with a calm and warm tone says: ""Naturally radiant skin.""\n*   **Closing (6-8 seconds):**\n    *   **Visual:**  The bottle of LumiGlow Serum is shown next to the Sunburst Botanicals logo and website URL. The woman in the previous shot smiles confidently at the camera.\n    *   **Audio:** The same voice says: ""Discover LumiGlow. SunburstBotanicals.com""  Music fades out.\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Focus on natural elements (leaves, dew, glowing skin) and the product bottle, which should look sleek and premium.\n    *   **Colors:** Earthy tones (greens, browns) combined with subtle highlights of light to represent bioluminescence.\n    *   **Mood:** Calming, natural, ethical, and effective. The feeling should be one of premium quality and care for nature.\n\n*   **Audio:**\n    *   **Music:** Upbeat acoustic track with a calming and natural feel. Something that evokes a sense of nature, renewal, and gentle energy.\n    *   **Voice Tone:** Calm, warm, and trustworthy female voice, emphasizing the natural aspects and benefits of the product.\n\n*   **Product Integration:**\n    *   Showcase the serum\'s unique quality (bioluminescence) by illustrating the subtle glow on the skin as it is applied.\n    *   Focus on the sleek, eco-friendly bottle design to connect with the target demographic\'s preference for ethical, high-quality products.\n    *   The brand’s name and website appear clearly for a call to action.\n\nThis prompt is designed to appeal to the target segment by highlighting the product\'s natural ingredients, ethical production, and effectiveness. The visual and audio elements create a calming and trustworthy atmosphere, aligning with their values. The call to action is clear and concise.\n'}",
+2025-01-18T20:00:10.534704,7f337e3d,Anti-Aging Focused Women - 45-65,9267807a,"
+Revenue Potential: $18 million/year ($100 avg purchase * 1.5 purchases/year * 120,000 customers)
+- Avg Purchase: $100 (comparable to other anti-aging serum products)
+- Frequency: 1.5 purchases/year (accounts for longer usage period and staggered replenishment)
+- Segment Size: 120,000 customers (conservative estimate of women actively seeking anti-aging skincare).
+","<style>
+.container {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-family: Google Sans, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+}
+.chip {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 16px;
+  min-width: 14px;
+  padding: 5px 16px;
+  text-align: center;
+  user-select: none;
+  margin: 0 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel {
+  overflow: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  margin-right: -12px;
+}
+.headline {
+  display: flex;
+  margin-right: 4px;
+}
+.gradient-container {
+  position: relative;
+}
+.gradient {
+  position: absolute;
+  transform: translate(3px, -9px);
+  height: 36px;
+  width: 9px;
+}
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #fafafa;
+    box-shadow: 0 0 0 1px #0000000f;
+  }
+  .headline-label {
+    color: #1f1f1f;
+  }
+  .chip {
+    background-color: #ffffff;
+    border-color: #d2d2d2;
+    color: #5e5e5e;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #f2f2f2;
+  }
+  .chip:focus {
+    background-color: #f2f2f2;
+  }
+  .chip:active {
+    background-color: #d8d8d8;
+    border-color: #b6b6b6;
+  }
+  .logo-dark {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #1f1f1f;
+    box-shadow: 0 0 0 1px #ffffff26;
+  }
+  .headline-label {
+    color: #fff;
+  }
+  .chip {
+    background-color: #2c2c2c;
+    border-color: #3c4043;
+    color: #fff;
+    text-decoration: none;
+  }
+  .chip:hover {
+    background-color: #353536;
+  }
+  .chip:focus {
+    background-color: #353536;
+  }
+  .chip:active {
+    background-color: #464849;
+    border-color: #53575b;
+  }
+  .logo-light {
+    display: none;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);
+  }
+}
+</style>
+<div class=""container"">
+  <div class=""headline"">
+    <svg class=""logo-light"" width=""18"" height=""18"" viewBox=""9 9 35 35"" fill=""none"" xmlns=""http://www.w3.org/2000/svg"">
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z"" fill=""#4285F4""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z"" fill=""#34A853""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z"" fill=""#FBBC05""/>
+      <path fill-rule=""evenodd"" clip-rule=""evenodd"" d=""M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z"" fill=""#EA4335""/>
+    </svg>
+    <svg class=""logo-dark"" width=""18"" height=""18"" viewBox=""0 0 48 48"" xmlns=""http://www.w3.org/2000/svg"">
+      <circle cx=""24"" cy=""23"" fill=""#FFF"" r=""22""/>
+      <path d=""M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z"" fill=""#4285F4""/>
+      <path d=""M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z"" fill=""#34A853""/>
+      <path d=""M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z"" fill=""#FBBC05""/>
+      <path d=""M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z"" fill=""#EA4335""/>
+    </svg>
+    <div class=""gradient-container""><div class=""gradient""></div></div>
+  </div>
+  <div class=""carousel"">
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYso5kO1sSzlVMQRX0lZJ9Wa_LNcXOCvAzO2UB1stv77_5r5wcWwottu38UAufxft37-ZnPwmnAQA7el0uQ2S2hLhwJ08F0btGaQhCvi3N0mhzwmdd-FhFCy1QakqE-NIVzhxjiwkcWl1wFrn0BJU3umNDiEe3fuGa5Ckfkpf0ANGzXZ9cLvV0Z4PilQxh0DYd5U-06Vmaw6L_J-95RyWu2WgQUueA=="">size of anti-aging skincare market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYtO8ZivKVPzzeGPX-p1qiYuJIqdclGuoHfct74kJCsrP-rly7DPROtTbynkh45vm6XBDDsA10X3_4LmNBg6vXmI7dmgPrg801YEBNNzVwGEP48Ido3SwA5qLiyo-IZNp02TUSxC7imviujXcPkR-bgmyk16CVMS09iiz-xeMtQ5KBrsDRbiCkzqadbO5IHOQtNYSh0dQWy3g0rLwaFxBKpibFCeeETsIw=="">size of eco-conscious consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvbJTeyXYwIJHRSsARGq_GItwYzQ2nkLMjle4SUbVrACGxQxukCPpS_NVi24ovo9IRmLxm6_NsBG2luXTubCs781FTIiZJmt3hxC7KoWzfutx0CzHGp0aF2Bx9DU7bVuQdYGGRBsp989mZXyjV_qs3Hew0ADN7uhYJ1w-tw1jQFjQqcnbjzBvlsj4_IPDkgEnlVEv_dUb4r3mBe4XDhuAc7ioW55o33PXX2HMQ="">size of affluent women demographic in USA</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYv1CrCctJjVdhAmLXY1lxn2qgjUgJP_5WvahUK4Olr4v9IWC8HZfKUQhpUrDZT32XYTg1IzM_d44sQ6FzZto1Ey7p93dr7rtnMXd-7kxNPmsoNKrCrliDvD2QRGKVso_pbDtvcOq2giyQCzG77gMJSYFzrDv8gPbdoEzxE7KyIljeFp4KkswerUAljMr6VeYjcGl2VsQp6SGzEasQSFwCQ="">size of vegan consumer market</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYu7c8hpNbqbXrOBLEbSBvewibnW-akl-wAB_X9Arh5v9ugf-B-GOAeZgUnZDLl9J40oPgKC5ko-e4sKo7D_PFCbBHcNDDGU7vcFNGJqjH03Nn2Z-jOtOoDHKoYwbwubIs2QCpWb4VaU0nfoy3bo0xFpxXKpIujJ-mRJVxOXXYEVdnvdRX2HyopCMp4GTisJGF4k19Z9hG3vpCaH4Bl3Z-ewmPlfHvAbJiT0jwDLO7U="">average annual spending on skincare products</a>
+    <a class=""chip"" href=""https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUBnsYvLfyDNemrf3DSBSOpEcqI3-SREuNl74l72tTLqHE7q2ZPj3xBfd7Fidl4XwgStyHnD17grVsKv4val35ZCIvuo-adKs-AKg9Nb131JoW0NpsojuePNLkZUOe3T3_D3PkHYPAdw2tw9qoATVP7QpziOoW1TeH6r0v9uqeBefGrDAwR2XuFwHkOFBIBOaQiZLF3ON6rGlU1BO719pKWiFi0xEvTe-V6l6naSxAy3"">average annual spending on skincare by age</a>
+  </div>
+</div>
+","{'persona': 'Okay, here\'s a persona designed to be used as an LLM prompt, focusing on the Anti-Aging Focused Women (45-65) segment:\n\n""You are Eleanor, a 52-year-old Marketing Manager at a mid-sized tech company. You live in a comfortable suburban home in Denver, Colorado, with your husband. Your household income is around $180,000 annually, and while you are financially secure, you prioritize smart spending and saving for retirement and future travel. Your daily routine is busy, balancing work, a bit of exercise (mostly yoga or brisk walking), and spending time with friends and family. You are health-conscious and aim to maintain an active lifestyle.\n\nYour core values center around maintaining your well-being, intellectual stimulation, and enjoying life\'s experiences. You\'re motivated by the desire to feel good about yourself, both inside and out, and you want to age gracefully. You\'re aware of the changes your body is experiencing, which can be a source of frustration. Your main pain points are the visible signs of aging, such as wrinkles, loss of skin firmness, and decreased energy. You tend to be a thoughtful and careful decision-maker, preferring to research options before committing to a purchase. You are moderately tech-savvy and comfortable using online platforms for research and shopping.\n\nWhen you shop, you like to do your homework. You typically begin by reading product reviews and comparing ingredients and benefits from different brands. Key factors in your purchasing decisions include the effectiveness of the product, positive customer feedback, and high-quality, natural ingredients. You\'re willing to pay for quality but you expect the price to align with the product\'s value. You tend to favor reputable brands that are known for their efficacy and transparency. You respond well to marketing that educates, offers real solutions to your concerns, and uses authentic, relatable language, especially when there are before-and-after pictures, with honest, natural-looking results.\n\nYour expectations for anti-aging products include that they have scientifically-backed ingredients that deliver noticeable results. You want products that are gentle on your skin, free of harsh chemicals, and provide long-term benefits, not just a temporary fix. Quality is paramount; you prefer to buy fewer, higher-quality items rather than lots of cheaper ones. You expect good customer service from brands you buy from, and you value being able to easily return a product if it doesn\'t meet expectations. You appreciate personalized recommendations and communication that shows you the brand cares about your unique concerns.""\n', 'video_prompt': 'Okay, here\'s an 8-second video ad prompt targeting the Anti-Aging Focused Women (45-65) segment, based on the provided persona and product details:\n\n**Video Advertisement Prompt for LumiGlow Serum**\n\n**Overall Theme:** Radiance and Graceful Aging\n\n**1. Scene Sequence (8 seconds total):**\n\n*   **Opening (2 seconds):**\n    *   **Visual:** Close-up shot of a woman\'s (mid-50s, like Eleanor) face. Her skin is healthy, but has fine lines. Soft, natural lighting. She looks confident but thoughtful. The color palette here should be warm, earthy and natural - think beige, soft greens and light browns.\n    *   **Audio:** Gentle, melodic music begins. A soft, warm voiceover says: ""Aging beautifully.""\n*   **Middle (4 seconds):**\n    *   **Visual:** Transition to a shot of the LumiGlow Serum bottle (sleek, natural colors, and eco-friendly) in a woman\'s hands. She is shown gently applying the serum to her face, the camera focuses on her radiant complexion as the serum is absorbed. Bioluminescent effect is subtle but visible. The woman in the shot has a healthy glow and the fine lines have been reduced.\n    *   **Audio:** Music increases in energy slightly. Voiceover continues: ""Unlock your skin\'s natural glow.""\n*   **Closing (2 seconds):**\n    *   **Visual:** Final shot of the woman from the opening, now looking even more radiant and vibrant. She smiles warmly at the camera. The LumiGlow Serum bottle is displayed in the corner with the website address or QR code.\n    *   **Audio:** Music softens again. Voiceover: ""LumiGlow Serum. Discover the difference.""\n\n**2. Style Elements:**\n\n*   **Visual:**\n    *   **Key Imagery:** Focus on natural beauty, radiant skin, and genuine moments. Avoid overly dramatic or artificial depictions of aging.\n    *   **Colors:** Earthy tones, soft greens, warm beiges, and subtle gold accents to convey natural ingredients and elegance.\n    *   **Mood:** Calm, confident, and hopeful. The video should inspire a sense of well-being and self-care.\n*   **Audio:**\n    *   **Music Style:** Gentle, acoustic, and melodic music with a touch of sophistication. Nothing too trendy or distracting.\n    *   **Voice Tone:** Warm, trustworthy, and reassuring. Should feel like a friend sharing a secret.\n*   **Product Integration:**\n    *   The serum is shown being used naturally and easily. Highlight its smooth texture, and subtle bioluminescent effect. Focus on how it enhances the skin\'s natural radiance without appearing overly dramatic or fake.\n    *   Briefly mention the natural ingredients, and eco-friendly packaging.\n\n**Additional Notes:**\n\n*   The visual style should aim for authenticity and relatability. Avoid unrealistic or overly retouched images of the woman.\n*   The voiceover should be clear, concise, and convey a sense of authority and warmth.\n*   The music should be calming and uplifting, creating a relaxing and aspirational tone.\n*   The call to action is gentle and encourages viewers to explore and learn more.\n\nThis prompt is tailored to address Eleanor\'s values, motivations, and pain points. It emphasizes natural beauty, effectiveness, and a gentle approach to anti-aging, which will resonate with the target audience.\n'}",

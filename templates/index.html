@@ -3,123 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Analysis App</title>
+    <title>Quick Ad Creation</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen">
     <div class="flex flex-col h-screen">
         <!-- Header -->
-        <header class="bg-white shadow-sm p-4">
-            <h1 class="text-2xl font-bold text-center text-gray-800">Product & Company Analysis</h1>
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto py-6 px-4">
+                <h1 class="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight leading-tight">
+                    Quick and Affordable Ad Creation for SMBs
+                </h1>
+                <p class="text-center text-gray-600 mt-2 text-sm font-medium">Transform your business with AI-powered video advertisements</p>
+            </div>
         </header>
 
         <!-- Main Content -->
-        <main class="flex-1 flex">
-            <!-- Left Panel - Inputs -->
-            <div class="w-1/3 p-6 overflow-y-auto border-r border-gray-200 bg-white">
-                <!-- Image Input Section -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-4">Product Image</h2>
-                    <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg">
-                        <div class="flex space-x-6 mb-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imageInputType" value="file" checked 
-                                       onchange="handleImageInputTypeChange()" class="text-blue-500">
-                                <span>File Upload</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imageInputType" value="url" 
-                                       onchange="handleImageInputTypeChange()" class="text-blue-500">
-                                <span>Image URL</span>
-                            </label>
-                        </div>
-                        
-                        <div id="fileUploadSection" class="mb-4">
-                            <input type="file" id="imageFile" accept="image/*" class="w-full border rounded p-2">
-                            <button onclick="handleImageUpload()" id="uploadButton" 
-                                    class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
-                                Upload Image
-                            </button>
-                        </div>
+        <main class="flex-1 flex bg-gray-50">
+            <!-- Left Panel -->
+            <div class="w-1/3 p-6 overflow-y-auto bg-white border-r border-gray-200">
+                <div class="space-y-8">
+                    <!-- Image Input Section -->
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-800 tracking-tight mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Product Image
+                        </h2>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
+                            <div class="flex space-x-6 mb-4">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="imageInputType" value="file" checked 
+                                           onchange="handleImageInputTypeChange()" class="text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-700 font-medium">File Upload</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="imageInputType" value="url" 
+                                           onchange="handleImageInputTypeChange()" class="text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-700 font-medium">Image URL</span>
+                                </label>
+                            </div>
+                            
+                            <div id="fileUploadSection" class="mb-4">
+                                <input type="file" id="imageFile" accept="image/*" class="w-full border border-gray-200 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-400">
+                                <button onclick="handleImageUpload()" id="uploadButton" 
+                                        class="mt-4 w-full py-3 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-lg font-semibold">
+                                    Upload Image
+                                </button>
+                            </div>
 
-                        <div id="urlInputSection" class="hidden mb-4">
-                            <input type="text" id="imageUrl" placeholder="Enter image URL" class="w-full border rounded p-2">
-                            <button onclick="handleImageUpload()" id="urlButton"
-                                    class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
-                                Add Image URL
-                            </button>
-                        </div>
+                            <div id="urlInputSection" class="hidden mb-4">
+                                <input type="text" id="imageUrl" placeholder="Enter image URL" class="w-full border border-gray-200 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-400">
+                                <button onclick="handleImageUpload()" id="urlButton"
+                                        class="mt-4 w-full py-3 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-lg font-semibold">
+                                    Add Image URL
+                                </button>
+                            </div>
 
-                        <div id="imagePreview" class="hidden mt-4">
-                            <p class="text-sm text-gray-600 mb-2">Selected Image:</p>
-                            <img id="previewImg" class="max-w-full h-auto rounded border" src="" alt="Preview">
-                            <button onclick="clearImage()" class="mt-2 text-red-500 text-sm hover:text-red-700">
-                                Remove Image
+                            <div id="imagePreview" class="hidden mt-4">
+                                <p class="text-sm text-gray-600 mb-2">Selected Image:</p>
+                                <img id="previewImg" class="max-w-full h-auto rounded border" src="" alt="Preview">
+                                <button onclick="clearImage()" class="mt-2 text-red-500 text-sm hover:text-red-700">
+                                    Remove Image
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Input Section -->
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-800 tracking-tight mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                            Company/Product Information
+                        </h2>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
+                            <div class="flex space-x-6 mb-4">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="textInputType" value="text" checked 
+                                           onchange="handleTextInputTypeChange()" class="text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-700 font-medium">Direct Text</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="textInputType" value="url" 
+                                           onchange="handleTextInputTypeChange()" class="text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-700 font-medium">Website URL</span>
+                                </label>
+                            </div>
+                            <textarea id="textInput" name="text_input"
+                                      placeholder="Enter product/company description" 
+                                      class="mb-4 p-4 w-full border border-gray-200 rounded-lg h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700 placeholder-gray-400"></textarea>
+                            <button onclick="generateResponse()" 
+                                    class="w-full py-3 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-lg font-semibold">
+                                Generate Analysis
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Text Input Section -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-4">Company/Product Information</h2>
-                    <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg">
-                        <div class="flex space-x-6 mb-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="textInputType" value="text" checked 
-                                       onchange="handleTextInputTypeChange()" class="text-blue-500">
-                                <span>Direct Text</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="textInputType" value="url" 
-                                       onchange="handleTextInputTypeChange()" class="text-blue-500">
-                                <span>Website URL</span>
-                            </label>
-                        </div>
-                        <textarea id="textInput" name="text_input"
-                                  placeholder="Enter product/company description" 
-                                  class="mb-4 p-2 w-full border rounded h-32 resize-none"></textarea>
-                        <button onclick="generateResponse()" 
-                                class="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 text-lg font-semibold w-full">
-                            Generate Analysis
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Generate Button -->
-                <div class="text-center">
-                </div>
             </div>
 
-            <!-- Middle Panel - Segment List -->
-            <div class="flex-1 p-4 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[calc(100vh-2rem)]">
-                <h2 class="text-xl font-bold mb-4">Customer Segments</h2>
-                <div id="segmentsContainer" class="space-y-6">
-                    <!-- Segments will be inserted here -->
-                </div>
-            </div>
-
-            <!-- Right Panel - Detailed Analysis -->
-            <div class="w-1/3 p-6 bg-gray-50 overflow-y-auto">
-                <div id="result" class="hidden">
-                    <h2 class="text-xl font-bold mb-4">Analysis Result</h2>
-                    <div id="description" class="p-6 bg-white rounded-lg shadow-sm"></div>
-                </div>
-
+            <!-- Middle Panel -->
+            <div class="flex-1 p-6 bg-white">
                 <div id="loading" class="hidden">
                     <div class="flex items-center justify-center p-12">
-                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                        <p class="ml-2 text-gray-600">Analyzing...</p>
+                        <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-600"></div>
+                        <p class="ml-3 text-gray-600 font-medium tracking-tight">Analyzing your business...</p>
                     </div>
                 </div>
+                <div id="segmentsContainer" class="space-y-6">
+                    <!-- Content will be dynamically inserted -->
+                </div>
+            </div>
 
-                <!-- Placeholder when no analysis -->
-                <div id="placeholder" class="text-center text-gray-500 p-12">
-                    <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            <!-- Right Panel -->
+            <div class="w-1/3 p-6 bg-gray-50">
+                <div id="result" class="hidden space-y-6">
+                    <h2 class="text-xl font-semibold text-gray-800 tracking-tight flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        Analysis Result
+                    </h2>
+                    <div id="description" class="bg-white rounded-xl shadow-sm p-6"></div>
+                </div>
+
+                <div id="placeholder" class="text-center p-12 bg-white rounded-xl shadow-sm">
+                    <svg class="mx-auto h-12 w-12 mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
-                    <p>Your analysis results will appear here</p>
+                    <p class="text-gray-500 font-medium tracking-tight">Your analysis results will appear here</p>
+                    <p class="text-gray-400 text-sm mt-2">We'll provide detailed insights about your target audience</p>
                 </div>
             </div>
         </main>
@@ -149,7 +164,7 @@
             descriptionDiv.innerHTML = '';
 
             if (data.error) {
-                segmentsContainer.innerHTML = `<div class="text-red-500">${data.error}</div>`;
+                segmentsContainer.innerHTML = `<div class="text-red-500 font-medium">${data.error}</div>`;
                 return;
             }
 
@@ -158,37 +173,30 @@
             
             // Middle column: Segments and Personas
             segments.forEach((segment, index) => {
-                // Get the segment name
                 const segmentName = segment.split(']')[0].trim();
-                
-                // Create segment container
                 const segmentDiv = document.createElement('div');
-                segmentDiv.className = 'mb-8 p-4 bg-gray-50 rounded-lg';
+                segmentDiv.className = 'mb-8 p-6 bg-white rounded-xl shadow-sm border border-gray-200';
                 
-                // Add segment content
                 const segmentContent = document.createElement('div');
                 segmentContent.className = 'prose max-w-none';
                 segmentContent.innerHTML = `
-                    <div class="font-bold text-lg mb-2">[${segmentName}]</div>
+                    <div class="text-xl font-semibold text-gray-800 mb-4">[${segmentName}]</div>
                 `;
                 
-                // Add persona content if available
                 if (data.personas && data.personas[segmentName]) {
                     const personaData = data.personas[segmentName];
                     const personaContent = document.createElement('div');
-                    personaContent.className = 'mt-4 p-4 bg-blue-50 rounded border-l-4 border-blue-500';
+                    personaContent.className = 'mt-6 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500';
                     
-                    // Add persona profile
                     personaContent.innerHTML = `
-                        <div class="font-semibold text-blue-800 mb-2">Persona Profile</div>
-                        <div class="whitespace-pre-wrap text-sm mb-4">${personaData.persona}</div>
+                        <div class="font-semibold text-blue-800 mb-3">Persona Profile</div>
+                        <div class="text-gray-700 text-sm leading-relaxed mb-6">${personaData.persona}</div>
                     `;
 
-                    // Add video prompt if available
                     if (personaData.video_prompt) {
                         personaContent.innerHTML += `
-                            <div class="font-semibold text-blue-800 mt-4 mb-2">Video Advertisement Prompt</div>
-                            <div class="whitespace-pre-wrap text-sm bg-white p-3 rounded">${personaData.video_prompt}</div>
+                            <div class="font-semibold text-blue-800 mb-3">Video Advertisement Prompt</div>
+                            <div class="bg-white rounded-lg p-4 text-sm text-gray-700 leading-relaxed shadow-sm">${personaData.video_prompt}</div>
                         `;
                     }
                     
@@ -202,8 +210,6 @@
             // Right column: Detailed Analysis
             const analysisHTML = segments.map(segment => {
                 const segmentName = segment.split(']')[0].trim();
-                
-                // Get content up to the value proposition section
                 let segmentContent = segment.split(']')[1];
                 const lastBracketIndex = segmentContent.lastIndexOf('[');
                 if (lastBracketIndex !== -1) {
@@ -211,21 +217,24 @@
                 }
                 
                 const lines = segmentContent.split('\n').filter(line => line.trim());
-                
-                // Extract revenue and metrics (first 4 lines typically)
                 const revenue = lines[0];
                 const metrics = lines.slice(1, 4);
                 
                 return `
-                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-sm p-6 mb-6 hover:shadow-md transition-shadow duration-200">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-bold text-xl text-blue-600">[${segmentName}]</h3>
-                            <div class="text-green-600 font-bold">${revenue}</div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-800">${segmentName}</h3>
+                            </div>
+                            <div class="text-green-600 font-semibold">${revenue}</div>
                         </div>
-                        <div class="space-y-2 mb-4">
+                        <div class="space-y-3">
                             ${metrics.map(metric => `
-                                <div class="bg-gray-50 p-3 rounded">
-                                    <p class="text-sm text-gray-600">${metric}</p>
+                                <div class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <p class="text-gray-700 text-sm leading-relaxed">${metric}</p>
                                 </div>
                             `).join('')}
                         </div>
@@ -233,15 +242,13 @@
                 `;
             }).join('');
 
-            // Update visibility and content
             resultDiv.classList.remove('hidden');
             placeholder.classList.add('hidden');
             descriptionDiv.innerHTML = `
-                <h2 class="text-xl font-bold mb-6">Detailed Analysis</h2>
+                <h2 class="text-xl font-semibold text-gray-800 mb-6">Detailed Analysis</h2>
                 ${analysisHTML}
             `;
             
-            // Show the containers
             segmentsContainer.style.display = 'block';
         }
 
