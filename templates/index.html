@@ -92,17 +92,10 @@
             </div>
 
             <!-- Middle Panel - Segment List -->
-            <div class="w-1/3 p-6 overflow-y-auto border-r border-gray-200 bg-gray-50">
-                <div id="segment-list" class="hidden">
-                    <h2 class="text-xl font-bold mb-4">Customer Segments</h2>
-                    <div id="segments-only" class="space-y-4"></div>
-                </div>
-                <div id="segment-placeholder" class="text-center text-gray-500 p-12">
-                    <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                    </svg>
-                    <p>Segment list will appear here</p>
+            <div class="flex-1 p-4 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[calc(100vh-2rem)]">
+                <h2 class="text-xl font-bold mb-4">Customer Segments</h2>
+                <div id="segmentsContainer" class="space-y-6">
+                    <!-- Segments will be inserted here -->
                 </div>
             </div>
 
@@ -145,71 +138,99 @@
             document.getElementById('loading').classList.add('hidden');
         }
 
-        function showResult(segments) {
+        function displayResults(data) {
+            const segmentsContainer = document.getElementById('segmentsContainer');
             const resultDiv = document.getElementById('result');
             const descriptionDiv = document.getElementById('description');
             const placeholder = document.getElementById('placeholder');
-            const segmentListDiv = document.getElementById('segment-list');
-            const segmentsOnlyDiv = document.getElementById('segments-only');
-            const segmentPlaceholder = document.getElementById('segment-placeholder');
             
-            // Split the segments text into individual segments
-            const segmentBlocks = segments.split('\n\n').filter(block => block.trim());
+            // Clear previous results
+            segmentsContainer.innerHTML = '';
+            descriptionDiv.innerHTML = '';
+
+            if (data.error) {
+                segmentsContainer.innerHTML = `<div class="text-red-500">${data.error}</div>`;
+                return;
+            }
+
+            // Split segments by "[" and filter out empty strings
+            const segments = data.segments.split('[').filter(Boolean);
             
-            // Create HTML for segment list (middle column)
-            const segmentListHTML = segmentBlocks.map(block => {
-                const lines = block.split('\n');
-                const title = lines[0].replace('[', '').replace(']', '');
-                const revenue = lines[1];
+            // Middle column: Segments and Personas
+            segments.forEach((segment, index) => {
+                // Get the segment name
+                const segmentName = segment.split(']')[0].trim();
                 
-                return `
-                    <div class="bg-white rounded-lg shadow-sm p-4">
-                        <div class="flex justify-between items-center">
-                            <h3 class="font-semibold text-blue-600">${title}</h3>
-                            <div class="text-green-600 text-sm font-medium">${revenue}</div>
-                        </div>
-                    </div>
+                // Create segment container
+                const segmentDiv = document.createElement('div');
+                segmentDiv.className = 'mb-8 p-4 bg-gray-50 rounded-lg';
+                
+                // Add segment content
+                const segmentContent = document.createElement('div');
+                segmentContent.className = 'prose max-w-none';
+                segmentContent.innerHTML = `
+                    <div class="font-bold text-lg mb-2">[${segmentName}]</div>
                 `;
-            }).join('');
+                
+                // Add persona content if available
+                if (data.personas && data.personas[segmentName]) {
+                    const personaContent = document.createElement('div');
+                    personaContent.className = 'mt-4 p-4 bg-blue-50 rounded border-l-4 border-blue-500';
+                    personaContent.innerHTML = `
+                        <div class="font-semibold text-blue-800 mb-2">Persona Profile</div>
+                        <div class="whitespace-pre-wrap text-sm">${data.personas[segmentName]}</div>
+                    `;
+                    segmentContent.appendChild(personaContent);
+                }
+                
+                segmentDiv.appendChild(segmentContent);
+                segmentsContainer.appendChild(segmentDiv);
+            });
             
-            // Create HTML for detailed analysis (right column)
-            const segmentsHTML = segmentBlocks.map(block => {
-                const lines = block.split('\n');
-                const title = lines[0].replace('[', '').replace(']', '');
-                const revenue = lines[1];
-                const metrics = lines.slice(2, 5);
-                const description = lines.slice(5).join('<br>');
+            // Right column: Detailed Analysis
+            const analysisHTML = segments.map(segment => {
+                const segmentName = segment.split(']')[0].trim();
+                
+                // Get content up to the value proposition section
+                let segmentContent = segment.split(']')[1];
+                const lastBracketIndex = segmentContent.lastIndexOf('[');
+                if (lastBracketIndex !== -1) {
+                    segmentContent = segmentContent.substring(0, lastBracketIndex).trim();
+                }
+                
+                const lines = segmentContent.split('\n').filter(line => line.trim());
+                
+                // Extract revenue and metrics (first 4 lines typically)
+                const revenue = lines[0];
+                const metrics = lines.slice(1, 4);
                 
                 return `
                     <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="font-bold text-xl text-blue-600">${title}</h3>
+                            <h3 class="font-bold text-xl text-blue-600">[${segmentName}]</h3>
                             <div class="text-green-600 font-bold">${revenue}</div>
                         </div>
-                        <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div class="space-y-2 mb-4">
                             ${metrics.map(metric => `
                                 <div class="bg-gray-50 p-3 rounded">
                                     <p class="text-sm text-gray-600">${metric}</p>
                                 </div>
                             `).join('')}
                         </div>
-                        <p class="text-gray-700 mt-4">${description}</p>
                     </div>
                 `;
             }).join('');
-            
-            // Update segment list column
-            segmentListDiv.classList.remove('hidden');
-            segmentPlaceholder.classList.add('hidden');
-            segmentsOnlyDiv.innerHTML = segmentListHTML;
-            
-            // Update detailed analysis column
+
+            // Update visibility and content
             resultDiv.classList.remove('hidden');
             placeholder.classList.add('hidden');
             descriptionDiv.innerHTML = `
                 <h2 class="text-xl font-bold mb-6">Detailed Analysis</h2>
-                ${segmentsHTML}
+                ${analysisHTML}
             `;
+            
+            // Show the containers
+            segmentsContainer.style.display = 'block';
         }
 
         function handleImageInputTypeChange() {
@@ -327,7 +348,7 @@
                 }
                 
                 hideLoading();
-                showResult(data.segments);
+                displayResults(data);
             } catch (error) {
                 hideLoading();
                 alert(`Error: ${error.message}`);

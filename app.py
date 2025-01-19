@@ -2,145 +2,24 @@ import os
 from flask import Flask, request, render_template, jsonify
 from PIL import Image
 from google import genai
-from google.genai.types import Tool, GenerateContentConfig, GoogleSearch
+from google.genai.types import Tool
 from dotenv import load_dotenv
 import requests
-from io import BytesIO
+from services.detailed_analysis import get_detailed_analysis
+from services.revenue_analysis import get_revenue_segments
+from services.persona_generator import generate_personas
+from services.cache_service import CacheService
 
 # Load environment variables
 load_dotenv()
 
 # Configure Google Gemini API
 client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
-model_id = "gemini-2.0-flash-exp"
 
-# Configure Google Search tool
-google_search_tool = Tool(
-    google_search=GoogleSearch()
-)
+# Initialize cache service
+cache_service = CacheService()
 
 app = Flask(__name__)
-
-def get_description(image_data=None, text_input=None):
-    try:
-        # First call to get detailed analysis
-        detailed_prompt = """Analyze the provided product information and identify the customer segments with the highest revenue potential. 
-        
-Follow these steps in your analysis:
-1. Product Understanding:
-   - Analyze the visual elements, features, and quality level from the image/description
-   - Identify key product attributes and value propositions
-   - Estimate the likely price point or price range for this product
-
-2. Market Size Analysis:
-   - Evaluate the total addressable market (TAM) for this product category
-   - Consider market trends and growth potential
-   - Identify key purchasing factors and frequency
-
-3. Customer Segmentation with Revenue Potential:
-   - For each potential customer segment, estimate:
-     * Average purchase value
-     * Purchase frequency (per year)
-     * Segment size (approximate number of customers)
-     * Total potential annual revenue (purchase value × frequency × size)
-   - Calculate the percentage contribution to total revenue for each segment
-   - Only retain segments that fall in the top 80% of cumulative revenue
-
-4. Market Penetration Factors:
-   - Assess ease of reaching each segment
-   - Consider customer acquisition costs
-   - Evaluate competitive pressure in each segment
-
-Provide a detailed analysis following these steps, with specific focus on revenue calculations."""
-
-        content = [detailed_prompt]
-        
-        if image_data:
-            # Convert bytes to PIL Image
-            image = Image.open(BytesIO(image_data))
-            content.append(image)
-        
-        if text_input:
-            if text_input.startswith('http'):
-                content.append(f"Based on the company website: {text_input}")
-            else:
-                content.append(f"Based on the product description: {text_input}")
-        
-        if not content[1:]:  # If no image or text input provided
-            return {"error": "Please provide either an image or text description"}
-
-        # Get detailed analysis with grounding
-        detailed_response = client.models.generate_content(
-            model=model_id,
-            contents=content,
-            config=GenerateContentConfig(
-                tools=[google_search_tool],
-                response_modalities=["TEXT"],
-            )
-        )
-        
-        if not detailed_response.candidates:
-            return {"error": "Failed to generate analysis"}
-
-        detailed_text = detailed_response.candidates[0].content.parts[0].text
-
-        # Second call to extract and summarize top revenue segments
-        summary_prompt = """Based on the detailed analysis, extract only the customer segments that contribute to the top 80% of total revenue potential.
-
-For each segment, provide:
-1. Segment Name/Title
-2. Revenue Metrics:
-   - Average purchase value
-   - Annual purchase frequency
-   - Estimated segment size
-   - Total annual revenue potential
-3. Brief description of why this segment is valuable
-
-Format the response as:
-[Segment Name]
-Revenue Potential: $X million/year
-- Avg Purchase: $X
-- Frequency: X purchases/year
-- Segment Size: X customers
-[Two-line description of value proposition for this segment]
-
-[Next Segment Name]
-...etc.
-
-Order segments by revenue potential (highest to lowest). Only include segments that together make up 80% of total revenue.
-
-Here's the analysis:
-""" + detailed_text
-
-        # Get summary with grounding
-        summary_response = client.models.generate_content(
-            model=model_id,
-            contents=[summary_prompt],
-            config=GenerateContentConfig(
-                tools=[google_search_tool],
-                response_modalities=["TEXT"],
-            )
-        )
-        
-        if not summary_response.candidates:
-            return {"error": "Failed to generate summary"}
-
-        summary_text = summary_response.candidates[0].content.parts[0].text
-        
-        # Get grounding metadata for debugging (optional)
-        grounding_data = None
-        try:
-            grounding_data = summary_response.candidates[0].grounding_metadata.search_entry_point.rendered_content
-        except:
-            pass
-
-        return {
-            "segments": summary_text,
-            "grounding_data": grounding_data
-        }
-
-    except Exception as e:
-        return {"error": f"Error generating description: {str(e)}"}
 
 @app.route('/')
 def home():
@@ -148,6 +27,7 @@ def home():
 
 @app.route('/analyze', methods=['POST'])
 def analyze_image():
+    """Handle analysis requests for both image and text inputs."""
     image_data = None
     text_input = None
 
@@ -180,8 +60,68 @@ def analyze_image():
     if not image_data and not text_input:
         return jsonify({'error': 'Please provide either an image or text description'}), 400
 
-    result = get_description(image_data, text_input)
-    return jsonify(result)
+    try:
+        # Combine inputs for query hash
+        query_input = {
+            'image': bool(image_data),
+            'text': text_input
+        }
+
+        # Step 1: Get detailed analysis
+        detailed_analysis, error = get_detailed_analysis(
+            image_data=image_data,
+            text_input=text_input,
+            client=client
+        )
+        
+        if error:
+            return jsonify({'error': error})
+
+        # Step 2: Get revenue segments
+        segments_result, error = get_revenue_segments(detailed_analysis, client)
+        
+        if error:
+            return jsonify({'error': error})
+
+        # Step 3: Generate personas for each segment
+        personas, error = generate_personas(segments_result['segments'], client)
+        
+        if error:
+            return jsonify({'error': error})
+
+        # Step 4: Cache the results
+        cached_data = cache_service.cache_analysis(
+            query_input=query_input,
+            segments_data=segments_result,
+            personas=personas
+        )
+
+        # Return results with segment keys
+        result = {
+            'segments': segments_result['segments'],
+            'personas': personas,
+            'segment_keys': {name: data['segment_key'] for name, data in cached_data.items()},
+            'grounding_data': segments_result.get('grounding_data')
+        }
+
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({'error': f'Analysis failed: {str(e)}'}), 500
+
+@app.route('/persona/<segment_key>', methods=['GET'])
+def get_persona(segment_key):
+    """Retrieve a cached persona by segment key."""
+    persona_data = cache_service.get_cached_persona(segment_key)
+    if persona_data:
+        return jsonify(persona_data)
+    return jsonify({'error': 'Persona not found'}), 404
+
+@app.route('/personas', methods=['GET'])
+def get_all_personas():
+    """Retrieve all cached personas."""
+    personas = cache_service.get_all_personas()
+    return jsonify(personas)
 
 if __name__ == '__main__':
     app.run(debug=True)
